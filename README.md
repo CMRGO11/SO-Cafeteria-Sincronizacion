@@ -1,5 +1,5 @@
 # Proyecto Final — Sistemas Operativos (P26-LIS2062-1)
-## Entrega 2: Implementación y Evidencia Técnica
+## Implementación y Evidencia Técnica
 
 **Universidad de las Américas Puebla**  
 Profesor: Edwin Montes Orozco  
