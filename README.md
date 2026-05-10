@@ -7,12 +7,26 @@ Equipo: Luis Carlos Ayuso Guarneros (180613) · Diego Camargo Padilla (180892) �
 
 ---
 
-## Descripción
+## Descripción del Proyecto
 
-Simulación de la cafetería universitaria UDLAP que demuestra:
-- **Concurrencia** con hilos POSIX (pthreads)
-- **Condiciones de carrera** y su solución con mutex
-- **Sincronización** con semáforos y variables de condición
+Simulación de una cafetería universitaria donde múltiples hilos (cajeros y un generador de clientes) compiten por recursos limitados (cajas de atención). El sistema demuestra conceptos fundamentales de sistemas operativos como:
+
+- **Condiciones de carrera**
+- **Exclcusión con Mutex**
+- **Semáforos para control de recursos**
+- **Variables de condición**
+- **Sincronización entre hilos**
+
+---
+
+## Arquitectura del sistema
+
+| Componente            | Cantidad              | Función                                             |
+|-----------------------|-----------------------|-----------------------------------------------------|
+| Generador de clientes | 1 hilo                | Crea clientes periódicamente y agregarlos a la fila |
+| Cajeros               | Variable (default: 5) | Toman clientes de la fila y los atienden            |
+| Cajas de atención     | Variable (default: 3) | Recurso limitado controlado por semáforo            |
+| Fila de clientes      | 1 estructura          | Recurso compartido protegido por mutex              |
 
 ---
 
@@ -25,7 +39,7 @@ project/
 │   └── race_condition.c     # Módulo 2: demostración de race condition
 ├── scripts/
 │   ├── build.sh             # Compila ambos módulos
-│   └── run_experiments.sh   # Ejecuta experimentos y genera logs/tablas
+│   └── run_experiments.sh   # Ejecuta experimentos automaticos y genera logs/tablas
 ├── results/
 │   ├── logs/                # Salidas de ejecución
 │   └── tables/              # Tablas CSV con métricas
@@ -36,25 +50,28 @@ project/
 
 ## Dependencias
 
-- Linux (Ubuntu 20.04+ recomendado)
-- `gcc` (GCC 9+)
-- `libpthread` (estándar en Linux, incluida en glibc)
+- Linux (Ubuntu recomendado)
+- `GCC` (compilador de C)
+- `libpthread` (biblioteca de hilos POSIX)
 
 ---
 
 ## Compilación
 
 ```bash
+# Dar permisos a los scripts
+chmod +x scripts/build.sh
+chmod +x scripts/run_experiments.sh
+
+# Compilar
 bash scripts/build.sh
 ```
-
-Produce los binarios `src/cafeteria` y `src/race_condition`.
 
 ---
 
 ## Ejecución
 
-### Módulo 1 — Simulación de cafetería
+### Módulo 1 — Simulación de cafetería (con sincronización)
 
 ```bash
 ./src/cafeteria [num_cajeros] [num_cajas] [num_clientes]
@@ -122,11 +139,18 @@ Genera automáticamente:
 
 ## Conceptos de SO demostrados
 
-| Concepto | Dónde |
-|---|---|
+- **Condición de carrera:** Demostrada en `race_condition.c` al acceder a una variable global sin protección
+- **Exclusión mutua (mutex):** Protección de la fila de clientes
+- **Semáforos:** Control de acceso a las cajas de atención (recurso limitado)
+- **Variables de condición:** Cajeros esperan cuando la fila está vacía
+- **Planificación de hilos:** El scheduler de Linux decide qué cajero atiende cada cliente
+
+| Concepto | Dónde se demuestra |
+|----------|-------------------|
 | Hilos POSIX | `cafeteria.c`, `race_condition.c` |
 | Condición de carrera | `race_condition.c` modo `sin_sync` |
 | Exclusión mutua (mutex) | `cafeteria.c` — cola de clientes; `race_condition.c` modo `con_sync` |
-| Semáforo contable | `cafeteria.c` — cajas de atención |
-| Variable de condición | `cafeteria.c` — cajeros en espera activa bloqueada |
-| Problema Productor-Consumidor | Generador de clientes ↔ Cajeros |
+| Semáforo contable | `cafeteria.c` — cajas de atención (recurso limitado) |
+| Variable de condición | `cafeteria.c` — cajeros esperan cuando fila vacía |
+| Problema Productor-Consumidor | Generador de clientes (productor) ↔ Cajeros (consumidores) |
+| Planificación de hilos | El scheduler de Linux decide qué cajero atiende cada cliente |
