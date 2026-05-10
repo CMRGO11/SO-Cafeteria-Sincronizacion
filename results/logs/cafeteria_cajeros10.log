@@ -1,0 +1,36 @@
+=== Cafetería UDLAP | cajeros=10 cajas=2 clientes=15 ===
+
+[GEN]    Cliente   1 llega  | cola=1
+[CAJERO 1] Atiende cliente   1 | espera=0ms
+[GEN]    Cliente   2 llega  | cola=1
+[CAJERO 2] Atiende cliente   2 | espera=0ms
+[GEN]    Cliente   3 llega  | cola=1
+[CAJERO 3] Atiende cliente   3 | espera=1ms
+[GEN]    Cliente   4 llega  | cola=1
+[CAJERO 4] Atiende cliente   4 | espera=0ms
+[GEN]    Cliente   5 llega  | cola=1
+[CAJERO 5] Atiende cliente   5 | espera=0ms
+[GEN]    Cliente   6 llega  | cola=1
+[CAJERO 6] Atiende cliente   6 | espera=0ms
+[GEN]    Cliente   7 llega  | cola=1
+[CAJERO 7] Atiende cliente   7 | espera=0ms
+[GEN]    Cliente   8 llega  | cola=1
+[CAJERO 8] Atiende cliente   8 | espera=0ms
+[GEN]    Cliente   9 llega  | cola=1
+[CAJERO 9] Atiende cliente   9 | espera=0ms
+[GEN]    Cliente  10 llega  | cola=1
+[CAJERO 10] Atiende cliente  10 | espera=0ms
+[GEN]    Cliente  11 llega  | cola=1
+[CAJERO 1] Atiende cliente  11 | espera=1ms
+[GEN]    Cliente  12 llega  | cola=1
+[CAJERO 2] Atiende cliente  12 | espera=0ms
+[GEN]    Cliente  13 llega  | cola=1
+[CAJERO 3] Atiende cliente  13 | espera=0ms
+[GEN]    Cliente  14 llega  | cola=1
+[CAJERO 4] Atiende cliente  14 | espera=0ms
+[GEN]    Cliente  15 llega  | cola=1
+[CAJERO 7] Atiende cliente  15 | espera=3ms
+
+=== RESUMEN ===
+Clientes atendidos : 15 / 15
+Tiempo espera prom.: 0 ms
