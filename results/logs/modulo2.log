@@ -1,0 +1,2009 @@
+=== CAFETERÍA CON RACE CONDITION (SIN sincronización) ===
+⚠️  SIN mutex | SIN semáforos | Puede haber errores
+
+Cajeros: 10 | Cajas: 1 | Clientes: 1000
+
+[GEN]    Cliente   1 llega  | cola=1
+[GEN]    Cliente   2 llega  | cola=2
+[GEN]    Cliente   3 llega  | cola=3
+[GEN]    Cliente   4 llega  | cola=4
+[GEN]    Cliente   5 llega  | cola=5
+[GEN]    Cliente   6 llega  | cola=6
+[GEN]    Cliente   7 llega  | cola=7
+[GEN]    Cliente   8 llega  | cola=8
+[GEN]    Cliente   9 llega  | cola=9
+[GEN]    Cliente  10 llega  | cola=10
+[GEN]    Cliente  11 llega  | cola=11
+[GEN]    Cliente  12 llega  | cola=12
+[GEN]    Cliente  13 llega  | cola=13
+[GEN]    Cliente  14 llega  | cola=14
+[GEN]    Cliente  15 llega  | cola=15
+[GEN]    Cliente  16 llega  | cola=16
+[GEN]    Cliente  17 llega  | cola=17
+[GEN]    Cliente  18 llega  | cola=18
+[GEN]    Cliente  19 llega  | cola=19
+[GEN]    Cliente  20 llega  | cola=20
+[GEN]    Cliente  21 llega  | cola=21
+[GEN]    Cliente  22 llega  | cola=22
+[GEN]    Cliente  23 llega  | cola=23
+[CAJERO 1] Atiende cliente   1 | espera=5ms | cajas=1
+[GEN]    Cliente  24 llega  | cola=23
+[CAJERO 2] Atiende cliente   2 | espera=6ms | cajas=2
+[CAJERO 1] Atiende cliente   3 | espera=6ms | cajas=2
+[CAJERO 2] Atiende cliente   4 | espera=6ms | cajas=2
+[GEN]    Cliente  25 llega  | cola=21
+[CAJERO 2] Atiende cliente   5 | espera=6ms | cajas=2
+[CAJERO 1] Atiende cliente   6 | espera=5ms | cajas=2
+[CAJERO 2] Atiende cliente   7 | espera=5ms | cajas=2
+[GEN]    Cliente  26 llega  | cola=19
+[CAJERO 2] Atiende cliente   8 | espera=4ms | cajas=2
+[CAJERO 1] Atiende cliente   9 | espera=4ms | cajas=2
+[CAJERO 2] Atiende cliente  10 | espera=4ms | cajas=2
+[GEN]    Cliente  27 llega  | cola=17
+[CAJERO 2] Atiende cliente  11 | espera=3ms | cajas=2
+[CAJERO 1] Atiende cliente  12 | espera=3ms | cajas=2
+[CAJERO 2] Atiende cliente  13 | espera=2ms | cajas=2
+[CAJERO 2] Atiende cliente  14 | espera=3ms | cajas=2
+[GEN]    Cliente  28 llega  | cola=14
+[CAJERO 1] Atiende cliente  15 | espera=3ms | cajas=2
+[CAJERO 2] Atiende cliente  16 | espera=3ms | cajas=2
+[GEN]    Cliente  29 llega  | cola=13
+[CAJERO 1] Atiende cliente  17 | espera=3ms | cajas=2
+[CAJERO 2] Atiende cliente  18 | espera=3ms | cajas=2
+[GEN]    Cliente  30 llega  | cola=12
+[CAJERO 1] Atiende cliente  19 | espera=2ms | cajas=2
+[CAJERO 2] Atiende cliente  20 | espera=2ms | cajas=2
+[GEN]    Cliente  31 llega  | cola=11
+[CAJERO 1] Atiende cliente  21 | espera=2ms | cajas=2
+[CAJERO 2] Atiende cliente  22 | espera=2ms | cajas=2
+[GEN]    Cliente  32 llega  | cola=10
+[CAJERO 1] Atiende cliente  23 | espera=3ms | cajas=2
+[CAJERO 2] Atiende cliente  24 | espera=2ms | cajas=2
+[GEN]    Cliente  33 llega  | cola=9
+[CAJERO 1] Atiende cliente  25 | espera=2ms | cajas=2
+[CAJERO 2] Atiende cliente  26 | espera=2ms | cajas=2
+[GEN]    Cliente  34 llega  | cola=8
+[CAJERO 1] Atiende cliente  27 | espera=2ms | cajas=2
+[CAJERO 2] Atiende cliente  28 | espera=1ms | cajas=2
+[GEN]    Cliente  35 llega  | cola=7
+[CAJERO 1] Atiende cliente  29 | espera=1ms | cajas=2
+[GEN]    Cliente  36 llega  | cola=7
+[CAJERO 2] Atiende cliente  30 | espera=1ms | cajas=2
+[CAJERO 2] Atiende cliente  31 | espera=1ms | cajas=2
+[CAJERO 1] Atiende cliente  32 | espera=0ms | cajas=2
+[GEN]    Cliente  37 llega  | cola=5
+[CAJERO 2] Atiende cliente  33 | espera=0ms | cajas=2
+[CAJERO 1] Atiende cliente  34 | espera=1ms | cajas=2
+[CAJERO 2] Atiende cliente  35 | espera=1ms | cajas=2
+[GEN]    Cliente  38 llega  | cola=3
+[CAJERO 1] Atiende cliente  36 | espera=1ms | cajas=2
+[CAJERO 2] Atiende cliente  37 | espera=1ms | cajas=2
+[GEN]    Cliente  39 llega  | cola=2
+[CAJERO 1] Atiende cliente  38 | espera=0ms | cajas=2
+[GEN]    Cliente  40 llega  | cola=2
+[CAJERO 2] Atiende cliente  39 | espera=0ms | cajas=2
+[CAJERO 1] Atiende cliente  40 | espera=0ms | cajas=2
+[GEN]    Cliente  41 llega  | cola=1
+[CAJERO 2] Atiende cliente  41 | espera=0ms | cajas=2
+[GEN]    Cliente  42 llega  | cola=1
+[CAJERO 3] Atiende cliente  42 | espera=0ms | cajas=2
+[GEN]    Cliente  43 llega  | cola=1
+[CAJERO 3] Atiende cliente  43 | espera=0ms | cajas=1
+[GEN]    Cliente  44 llega  | cola=1
+[CAJERO 3] Atiende cliente  44 | espera=0ms | cajas=1
+[GEN]    Cliente  45 llega  | cola=1
+[CAJERO 4] Atiende cliente  45 | espera=0ms | cajas=2
+[GEN]    Cliente  46 llega  | cola=1
+[CAJERO 4] Atiende cliente  46 | espera=0ms | cajas=1
+[GEN]    Cliente  47 llega  | cola=1
+[CAJERO 7] Atiende cliente  47 | espera=0ms | cajas=2
+[GEN]    Cliente  48 llega  | cola=1
+[CAJERO 8] Atiende cliente  48 | espera=0ms | cajas=2
+[GEN]    Cliente  49 llega  | cola=1
+[CAJERO 8] Atiende cliente  49 | espera=0ms | cajas=1
+[GEN]    Cliente  50 llega  | cola=1
+[CAJERO 8] Atiende cliente  50 | espera=0ms | cajas=1
+[GEN]    Cliente  51 llega  | cola=1
+[GEN]    Cliente  52 llega  | cola=2
+[GEN]    Cliente  53 llega  | cola=3
+[CAJERO 10] Atiende cliente  51 | espera=1ms | cajas=1
+[GEN]    Cliente  54 llega  | cola=3
+[CAJERO 10] Atiende cliente  52 | espera=0ms | cajas=1
+[GEN]    Cliente  55 llega  | cola=3
+[CAJERO 10] Atiende cliente  53 | espera=0ms | cajas=1
+[GEN]    Cliente  56 llega  | cola=3
+[CAJERO 10] Atiende cliente  54 | espera=0ms | cajas=1
+[CAJERO 10] Atiende cliente  55 | espera=0ms | cajas=1
+[GEN]    Cliente  57 llega  | cola=2
+[CAJERO 10] Atiende cliente  56 | espera=0ms | cajas=1
+[GEN]    Cliente  58 llega  | cola=2
+[CAJERO 10] Atiende cliente  57 | espera=1ms | cajas=1
+[GEN]    Cliente  59 llega  | cola=2
+[CAJERO 10] Atiende cliente  58 | espera=0ms | cajas=1
+[GEN]    Cliente  60 llega  | cola=2
+[CAJERO 10] Atiende cliente  59 | espera=0ms | cajas=1
+[GEN]    Cliente  61 llega  | cola=2
+[CAJERO 10] Atiende cliente  60 | espera=0ms | cajas=1
+[GEN]    Cliente  62 llega  | cola=2
+[CAJERO 10] Atiende cliente  61 | espera=0ms | cajas=1
+[GEN]    Cliente  63 llega  | cola=2
+[CAJERO 10] Atiende cliente  62 | espera=0ms | cajas=1
+[GEN]    Cliente  64 llega  | cola=2
+[CAJERO 10] Atiende cliente  63 | espera=0ms | cajas=1
+[GEN]    Cliente  65 llega  | cola=2
+[CAJERO 10] Atiende cliente  64 | espera=0ms | cajas=1
+[GEN]    Cliente  66 llega  | cola=2
+[CAJERO 10] Atiende cliente  65 | espera=1ms | cajas=1
+[GEN]    Cliente  67 llega  | cola=2
+[CAJERO 10] Atiende cliente  66 | espera=0ms | cajas=1
+[GEN]    Cliente  68 llega  | cola=2
+[CAJERO 10] Atiende cliente  67 | espera=0ms | cajas=1
+[GEN]    Cliente  69 llega  | cola=2
+[CAJERO 10] Atiende cliente  68 | espera=0ms | cajas=1
+[GEN]    Cliente  70 llega  | cola=2
+[CAJERO 10] Atiende cliente  69 | espera=0ms | cajas=1
+[GEN]    Cliente  71 llega  | cola=2
+[CAJERO 10] Atiende cliente  70 | espera=0ms | cajas=1
+[GEN]    Cliente  72 llega  | cola=2
+[CAJERO 10] Atiende cliente  71 | espera=0ms | cajas=1
+[GEN]    Cliente  73 llega  | cola=2
+[CAJERO 10] Atiende cliente  72 | espera=1ms | cajas=1
+[GEN]    Cliente  74 llega  | cola=2
+[CAJERO 10] Atiende cliente  73 | espera=0ms | cajas=1
+[GEN]    Cliente  75 llega  | cola=2
+[CAJERO 10] Atiende cliente  74 | espera=0ms | cajas=1
+[CAJERO 10] Atiende cliente  75 | espera=0ms | cajas=1
+[GEN]    Cliente  76 llega  | cola=1
+[CAJERO 10] Atiende cliente  76 | espera=0ms | cajas=1
+[GEN]    Cliente  77 llega  | cola=1
+[CAJERO 10] Atiende cliente  77 | espera=0ms | cajas=1
+[GEN]    Cliente  78 llega  | cola=1
+[CAJERO 10] Atiende cliente  78 | espera=0ms | cajas=1
+[GEN]    Cliente  79 llega  | cola=1
+[CAJERO 10] Atiende cliente  79 | espera=1ms | cajas=1
+[GEN]    Cliente  80 llega  | cola=1
+[CAJERO 10] Atiende cliente  80 | espera=0ms | cajas=1
+[GEN]    Cliente  81 llega  | cola=1
+[CAJERO 10] Atiende cliente  81 | espera=0ms | cajas=1
+[GEN]    Cliente  82 llega  | cola=1
+[CAJERO 10] Atiende cliente  82 | espera=0ms | cajas=1
+[GEN]    Cliente  83 llega  | cola=1
+[CAJERO 10] Atiende cliente  83 | espera=0ms | cajas=1
+[GEN]    Cliente  84 llega  | cola=1
+[CAJERO 10] Atiende cliente  84 | espera=0ms | cajas=1
+[GEN]    Cliente  85 llega  | cola=1
+[CAJERO 10] Atiende cliente  85 | espera=0ms | cajas=1
+[GEN]    Cliente  86 llega  | cola=1
+[CAJERO 10] Atiende cliente  86 | espera=0ms | cajas=1
+[GEN]    Cliente  87 llega  | cola=1
+[CAJERO 10] Atiende cliente  87 | espera=1ms | cajas=1
+[GEN]    Cliente  88 llega  | cola=1
+[CAJERO 10] Atiende cliente  88 | espera=0ms | cajas=1
+[GEN]    Cliente  89 llega  | cola=1
+[CAJERO 10] Atiende cliente  89 | espera=0ms | cajas=1
+[GEN]    Cliente  90 llega  | cola=1
+[CAJERO 10] Atiende cliente  90 | espera=0ms | cajas=1
+[GEN]    Cliente  91 llega  | cola=1
+[GEN]    Cliente  92 llega  | cola=2
+[CAJERO 10] Atiende cliente  91 | espera=0ms | cajas=1
+[GEN]    Cliente  93 llega  | cola=2
+[CAJERO 10] Atiende cliente  92 | espera=0ms | cajas=1
+[GEN]    Cliente  94 llega  | cola=2
+[CAJERO 10] Atiende cliente  93 | espera=0ms | cajas=1
+[GEN]    Cliente  95 llega  | cola=2
+[CAJERO 10] Atiende cliente  94 | espera=0ms | cajas=1
+[GEN]    Cliente  96 llega  | cola=2
+[CAJERO 10] Atiende cliente  95 | espera=1ms | cajas=1
+[GEN]    Cliente  97 llega  | cola=2
+[CAJERO 10] Atiende cliente  96 | espera=1ms | cajas=1
+[GEN]    Cliente  98 llega  | cola=2
+[CAJERO 10] Atiende cliente  97 | espera=0ms | cajas=1
+[GEN]    Cliente  99 llega  | cola=2
+[CAJERO 10] Atiende cliente  98 | espera=0ms | cajas=1
+[GEN]    Cliente 100 llega  | cola=2
+[CAJERO 10] Atiende cliente  99 | espera=0ms | cajas=1
+[GEN]    Cliente 101 llega  | cola=2
+[CAJERO 10] Atiende cliente 100 | espera=0ms | cajas=1
+[GEN]    Cliente 102 llega  | cola=2
+[CAJERO 10] Atiende cliente 101 | espera=0ms | cajas=1
+[GEN]    Cliente 103 llega  | cola=2
+[CAJERO 10] Atiende cliente 102 | espera=0ms | cajas=1
+[GEN]    Cliente 104 llega  | cola=2
+[CAJERO 10] Atiende cliente 103 | espera=0ms | cajas=1
+[CAJERO 10] Atiende cliente 104 | espera=0ms | cajas=1
+[GEN]    Cliente 105 llega  | cola=1
+[CAJERO 10] Atiende cliente 105 | espera=0ms | cajas=1
+[GEN]    Cliente 106 llega  | cola=1
+[CAJERO 10] Atiende cliente 106 | espera=0ms | cajas=1
+[GEN]    Cliente 107 llega  | cola=1
+[CAJERO 10] Atiende cliente 107 | espera=0ms | cajas=1
+[GEN]    Cliente 108 llega  | cola=1
+[CAJERO 10] Atiende cliente 108 | espera=0ms | cajas=1
+[GEN]    Cliente 109 llega  | cola=1
+[CAJERO 10] Atiende cliente 109 | espera=0ms | cajas=1
+[GEN]    Cliente 110 llega  | cola=1
+[GEN]    Cliente 111 llega  | cola=2
+[GEN]    Cliente 112 llega  | cola=3
+[CAJERO 1] Atiende cliente 110 | espera=1ms | cajas=1
+[GEN]    Cliente 113 llega  | cola=3
+[CAJERO 2] Atiende cliente 111 | espera=0ms | cajas=2
+[GEN]    Cliente 114 llega  | cola=3
+[CAJERO 1] Atiende cliente 112 | espera=0ms | cajas=1
+[CAJERO 2] Atiende cliente 113 | espera=0ms | cajas=2
+[CAJERO 5] Atiende cliente 114 | espera=0ms | cajas=3
+[GEN]    Cliente 115 llega  | cola=1
+[CAJERO 5] Atiende cliente 115 | espera=1ms | cajas=1
+[GEN]    Cliente 116 llega  | cola=1
+[CAJERO 3] Atiende cliente 116 | espera=0ms | cajas=2
+[GEN]    Cliente 117 llega  | cola=1
+[CAJERO 4] Atiende cliente 117 | espera=0ms | cajas=2
+[GEN]    Cliente 118 llega  | cola=1
+[CAJERO 3] Atiende cliente 118 | espera=0ms | cajas=2
+[GEN]    Cliente 119 llega  | cola=1
+[CAJERO 3] Atiende cliente 119 | espera=0ms | cajas=1
+[GEN]    Cliente 120 llega  | cola=1
+[CAJERO 3] Atiende cliente 120 | espera=0ms | cajas=1
+[GEN]    Cliente 121 llega  | cola=1
+[CAJERO 9] Atiende cliente 121 | espera=0ms | cajas=2
+[GEN]    Cliente 122 llega  | cola=1
+[CAJERO 9] Atiende cliente 122 | espera=0ms | cajas=1
+[GEN]    Cliente 123 llega  | cola=1
+[CAJERO 9] Atiende cliente 123 | espera=0ms | cajas=1
+[GEN]    Cliente 124 llega  | cola=1
+[CAJERO 9] Atiende cliente 124 | espera=0ms | cajas=1
+[GEN]    Cliente 125 llega  | cola=1
+[CAJERO 9] Atiende cliente 125 | espera=0ms | cajas=1
+[GEN]    Cliente 126 llega  | cola=1
+[CAJERO 9] Atiende cliente 126 | espera=0ms | cajas=1
+[GEN]    Cliente 127 llega  | cola=1
+[CAJERO 9] Atiende cliente 127 | espera=0ms | cajas=1
+[GEN]    Cliente 128 llega  | cola=1
+[CAJERO 9] Atiende cliente 128 | espera=0ms | cajas=1
+[GEN]    Cliente 129 llega  | cola=1
+[CAJERO 9] Atiende cliente 129 | espera=0ms | cajas=1
+[GEN]    Cliente 130 llega  | cola=1
+[CAJERO 9] Atiende cliente 130 | espera=0ms | cajas=1
+[GEN]    Cliente 131 llega  | cola=1
+[CAJERO 9] Atiende cliente 131 | espera=0ms | cajas=1
+[GEN]    Cliente 132 llega  | cola=1
+[CAJERO 9] Atiende cliente 132 | espera=0ms | cajas=1
+[GEN]    Cliente 133 llega  | cola=1
+[CAJERO 9] Atiende cliente 133 | espera=0ms | cajas=1
+[GEN]    Cliente 134 llega  | cola=1
+[CAJERO 9] Atiende cliente 134 | espera=0ms | cajas=1
+[GEN]    Cliente 135 llega  | cola=1
+[CAJERO 9] Atiende cliente 135 | espera=0ms | cajas=1
+[GEN]    Cliente 136 llega  | cola=1
+[CAJERO 9] Atiende cliente 136 | espera=0ms | cajas=1
+[GEN]    Cliente 137 llega  | cola=1
+[CAJERO 9] Atiende cliente 137 | espera=0ms | cajas=1
+[GEN]    Cliente 138 llega  | cola=1
+[CAJERO 9] Atiende cliente 138 | espera=0ms | cajas=1
+[GEN]    Cliente 139 llega  | cola=1
+[CAJERO 9] Atiende cliente 139 | espera=0ms | cajas=1
+[GEN]    Cliente 140 llega  | cola=1
+[CAJERO 9] Atiende cliente 140 | espera=0ms | cajas=1
+[GEN]    Cliente 141 llega  | cola=1
+[CAJERO 9] Atiende cliente 141 | espera=0ms | cajas=1
+[GEN]    Cliente 142 llega  | cola=1
+[CAJERO 9] Atiende cliente 142 | espera=0ms | cajas=1
+[GEN]    Cliente 143 llega  | cola=1
+[CAJERO 9] Atiende cliente 143 | espera=0ms | cajas=1
+[GEN]    Cliente 144 llega  | cola=1
+[CAJERO 9] Atiende cliente 144 | espera=1ms | cajas=1
+[GEN]    Cliente 145 llega  | cola=1
+[CAJERO 9] Atiende cliente 145 | espera=0ms | cajas=1
+[GEN]    Cliente 146 llega  | cola=1
+[CAJERO 9] Atiende cliente 146 | espera=0ms | cajas=1
+[GEN]    Cliente 147 llega  | cola=1
+[CAJERO 9] Atiende cliente 147 | espera=0ms | cajas=1
+[GEN]    Cliente 148 llega  | cola=1
+[CAJERO 9] Atiende cliente 148 | espera=0ms | cajas=1
+[GEN]    Cliente 149 llega  | cola=1
+[CAJERO 9] Atiende cliente 149 | espera=0ms | cajas=1
+[GEN]    Cliente 150 llega  | cola=1
+[CAJERO 9] Atiende cliente 150 | espera=0ms | cajas=1
+[GEN]    Cliente 151 llega  | cola=1
+[CAJERO 9] Atiende cliente 151 | espera=0ms | cajas=1
+[GEN]    Cliente 152 llega  | cola=1
+[CAJERO 9] Atiende cliente 152 | espera=0ms | cajas=1
+[GEN]    Cliente 153 llega  | cola=1
+[CAJERO 9] Atiende cliente 153 | espera=0ms | cajas=1
+[GEN]    Cliente 154 llega  | cola=1
+[CAJERO 9] Atiende cliente 154 | espera=0ms | cajas=1
+[GEN]    Cliente 155 llega  | cola=1
+[CAJERO 9] Atiende cliente 155 | espera=0ms | cajas=1
+[GEN]    Cliente 156 llega  | cola=1
+[CAJERO 9] Atiende cliente 156 | espera=0ms | cajas=1
+[GEN]    Cliente 157 llega  | cola=1
+[CAJERO 9] Atiende cliente 157 | espera=0ms | cajas=1
+[GEN]    Cliente 158 llega  | cola=1
+[CAJERO 9] Atiende cliente 158 | espera=0ms | cajas=1
+[GEN]    Cliente 159 llega  | cola=1
+[CAJERO 9] Atiende cliente 159 | espera=0ms | cajas=1
+[GEN]    Cliente 160 llega  | cola=1
+[CAJERO 9] Atiende cliente 160 | espera=0ms | cajas=1
+[GEN]    Cliente 161 llega  | cola=1
+[CAJERO 9] Atiende cliente 161 | espera=0ms | cajas=1
+[GEN]    Cliente 162 llega  | cola=1
+[CAJERO 9] Atiende cliente 162 | espera=0ms | cajas=1
+[GEN]    Cliente 163 llega  | cola=1
+[CAJERO 9] Atiende cliente 163 | espera=0ms | cajas=1
+[GEN]    Cliente 164 llega  | cola=1
+[CAJERO 9] Atiende cliente 164 | espera=0ms | cajas=1
+[GEN]    Cliente 165 llega  | cola=1
+[CAJERO 9] Atiende cliente 165 | espera=0ms | cajas=1
+[GEN]    Cliente 166 llega  | cola=1
+[CAJERO 9] Atiende cliente 166 | espera=0ms | cajas=1
+[GEN]    Cliente 167 llega  | cola=1
+[CAJERO 9] Atiende cliente 167 | espera=0ms | cajas=1
+[GEN]    Cliente 168 llega  | cola=1
+[CAJERO 9] Atiende cliente 168 | espera=0ms | cajas=1
+[GEN]    Cliente 169 llega  | cola=1
+[CAJERO 9] Atiende cliente 169 | espera=0ms | cajas=1
+[GEN]    Cliente 170 llega  | cola=1
+[CAJERO 9] Atiende cliente 170 | espera=0ms | cajas=1
+[GEN]    Cliente 171 llega  | cola=1
+[CAJERO 9] Atiende cliente 171 | espera=0ms | cajas=1
+[GEN]    Cliente 172 llega  | cola=1
+[CAJERO 9] Atiende cliente 172 | espera=0ms | cajas=1
+[GEN]    Cliente 173 llega  | cola=1
+[CAJERO 9] Atiende cliente 173 | espera=0ms | cajas=1
+[GEN]    Cliente 174 llega  | cola=1
+[CAJERO 9] Atiende cliente 174 | espera=0ms | cajas=1
+[GEN]    Cliente 175 llega  | cola=1
+[CAJERO 9] Atiende cliente 175 | espera=0ms | cajas=1
+[GEN]    Cliente 176 llega  | cola=1
+[CAJERO 9] Atiende cliente 176 | espera=0ms | cajas=1
+[GEN]    Cliente 177 llega  | cola=1
+[CAJERO 9] Atiende cliente 177 | espera=0ms | cajas=1
+[GEN]    Cliente 178 llega  | cola=1
+[CAJERO 9] Atiende cliente 178 | espera=0ms | cajas=1
+[GEN]    Cliente 179 llega  | cola=1
+[CAJERO 9] Atiende cliente 179 | espera=0ms | cajas=1
+[GEN]    Cliente 180 llega  | cola=1
+[CAJERO 9] Atiende cliente 180 | espera=0ms | cajas=1
+[GEN]    Cliente 181 llega  | cola=1
+[CAJERO 9] Atiende cliente 181 | espera=0ms | cajas=1
+[GEN]    Cliente 182 llega  | cola=1
+[CAJERO 9] Atiende cliente 182 | espera=0ms | cajas=1
+[GEN]    Cliente 183 llega  | cola=1
+[CAJERO 9] Atiende cliente 183 | espera=0ms | cajas=1
+[GEN]    Cliente 184 llega  | cola=1
+[CAJERO 9] Atiende cliente 184 | espera=0ms | cajas=1
+[GEN]    Cliente 185 llega  | cola=1
+[CAJERO 9] Atiende cliente 185 | espera=0ms | cajas=1
+[GEN]    Cliente 186 llega  | cola=1
+[CAJERO 9] Atiende cliente 186 | espera=0ms | cajas=1
+[GEN]    Cliente 187 llega  | cola=1
+[CAJERO 9] Atiende cliente 187 | espera=0ms | cajas=1
+[GEN]    Cliente 188 llega  | cola=1
+[CAJERO 9] Atiende cliente 188 | espera=0ms | cajas=1
+[GEN]    Cliente 189 llega  | cola=1
+[CAJERO 9] Atiende cliente 189 | espera=0ms | cajas=1
+[GEN]    Cliente 190 llega  | cola=1
+[CAJERO 9] Atiende cliente 190 | espera=1ms | cajas=1
+[GEN]    Cliente 191 llega  | cola=1
+[CAJERO 9] Atiende cliente 191 | espera=0ms | cajas=1
+[GEN]    Cliente 192 llega  | cola=1
+[CAJERO 9] Atiende cliente 192 | espera=0ms | cajas=1
+[GEN]    Cliente 193 llega  | cola=1
+[CAJERO 9] Atiende cliente 193 | espera=0ms | cajas=1
+[GEN]    Cliente 194 llega  | cola=1
+[CAJERO 9] Atiende cliente 194 | espera=0ms | cajas=1
+[GEN]    Cliente 195 llega  | cola=1
+[CAJERO 9] Atiende cliente 195 | espera=0ms | cajas=1
+[GEN]    Cliente 196 llega  | cola=1
+[CAJERO 9] Atiende cliente 196 | espera=0ms | cajas=1
+[GEN]    Cliente 197 llega  | cola=1
+[CAJERO 9] Atiende cliente 197 | espera=0ms | cajas=1
+[GEN]    Cliente 198 llega  | cola=1
+[CAJERO 9] Atiende cliente 198 | espera=0ms | cajas=1
+[GEN]    Cliente 199 llega  | cola=1
+[CAJERO 9] Atiende cliente 199 | espera=0ms | cajas=1
+[GEN]    Cliente 200 llega  | cola=1
+[CAJERO 9] Atiende cliente 200 | espera=0ms | cajas=1
+[GEN]    Cliente 201 llega  | cola=1
+[CAJERO 9] Atiende cliente 201 | espera=0ms | cajas=1
+[GEN]    Cliente 202 llega  | cola=1
+[CAJERO 9] Atiende cliente 202 | espera=0ms | cajas=1
+[GEN]    Cliente 203 llega  | cola=1
+[CAJERO 9] Atiende cliente 203 | espera=0ms | cajas=1
+[GEN]    Cliente 204 llega  | cola=1
+[CAJERO 9] Atiende cliente 204 | espera=0ms | cajas=1
+[GEN]    Cliente 205 llega  | cola=1
+[CAJERO 9] Atiende cliente 205 | espera=0ms | cajas=1
+[GEN]    Cliente 206 llega  | cola=1
+[CAJERO 9] Atiende cliente 206 | espera=0ms | cajas=1
+[GEN]    Cliente 207 llega  | cola=1
+[CAJERO 9] Atiende cliente 207 | espera=0ms | cajas=1
+[GEN]    Cliente 208 llega  | cola=1
+[CAJERO 8] Atiende cliente 208 | espera=0ms | cajas=2
+[GEN]    Cliente 209 llega  | cola=1
+[GEN]    Cliente 210 llega  | cola=2
+[GEN]    Cliente 211 llega  | cola=3
+[GEN]    Cliente 212 llega  | cola=4
+[GEN]    Cliente 213 llega  | cola=5
+[GEN]    Cliente 214 llega  | cola=6
+[GEN]    Cliente 215 llega  | cola=7
+[GEN]    Cliente 216 llega  | cola=8
+[GEN]    Cliente 217 llega  | cola=9
+[GEN]    Cliente 218 llega  | cola=10
+[GEN]    Cliente 219 llega  | cola=11
+[GEN]    Cliente 220 llega  | cola=12
+[GEN]    Cliente 221 llega  | cola=13
+[GEN]    Cliente 222 llega  | cola=14
+[GEN]    Cliente 223 llega  | cola=15
+[GEN]    Cliente 224 llega  | cola=16
+[GEN]    Cliente 225 llega  | cola=17
+[GEN]    Cliente 226 llega  | cola=18
+[GEN]    Cliente 227 llega  | cola=19
+[GEN]    Cliente 228 llega  | cola=20
+[GEN]    Cliente 229 llega  | cola=21
+[GEN]    Cliente 230 llega  | cola=22
+[GEN]    Cliente 231 llega  | cola=23
+[GEN]    Cliente 232 llega  | cola=24
+[GEN]    Cliente 233 llega  | cola=25
+[GEN]    Cliente 234 llega  | cola=26
+[GEN]    Cliente 235 llega  | cola=27
+[GEN]    Cliente 236 llega  | cola=28
+[GEN]    Cliente 237 llega  | cola=29
+[GEN]    Cliente 238 llega  | cola=30
+[GEN]    Cliente 239 llega  | cola=31
+[GEN]    Cliente 240 llega  | cola=32
+[GEN]    Cliente 241 llega  | cola=33
+[GEN]    Cliente 242 llega  | cola=34
+[GEN]    Cliente 243 llega  | cola=35
+[GEN]    Cliente 244 llega  | cola=36
+[GEN]    Cliente 245 llega  | cola=37
+[GEN]    Cliente 246 llega  | cola=38
+[GEN]    Cliente 247 llega  | cola=39
+[GEN]    Cliente 248 llega  | cola=40
+[GEN]    Cliente 249 llega  | cola=41
+[GEN]    Cliente 250 llega  | cola=42
+[GEN]    Cliente 251 llega  | cola=43
+[GEN]    Cliente 252 llega  | cola=44
+[GEN]    Cliente 253 llega  | cola=45
+[GEN]    Cliente 254 llega  | cola=46
+[GEN]    Cliente 255 llega  | cola=47
+[GEN]    Cliente 256 llega  | cola=48
+[GEN]    Cliente 257 llega  | cola=49
+[GEN]    Cliente 258 llega  | cola=50
+[GEN]    Cliente 259 llega  | cola=51
+[GEN]    Cliente 260 llega  | cola=52
+[GEN]    Cliente 261 llega  | cola=53
+[GEN]    Cliente 262 llega  | cola=54
+[GEN]    Cliente 263 llega  | cola=55
+[GEN]    Cliente 264 llega  | cola=56
+[GEN]    Cliente 265 llega  | cola=57
+[GEN]    Cliente 266 llega  | cola=58
+[GEN]    Cliente 267 llega  | cola=59
+[GEN]    Cliente 268 llega  | cola=60
+[GEN]    Cliente 269 llega  | cola=61
+[GEN]    Cliente 270 llega  | cola=62
+[GEN]    Cliente 271 llega  | cola=63
+[GEN]    Cliente 272 llega  | cola=64
+[GEN]    Cliente 273 llega  | cola=65
+[GEN]    Cliente 274 llega  | cola=66
+[GEN]    Cliente 275 llega  | cola=67
+[GEN]    Cliente 276 llega  | cola=68
+[GEN]    Cliente 277 llega  | cola=69
+[GEN]    Cliente 278 llega  | cola=70
+[GEN]    Cliente 279 llega  | cola=71
+[CAJERO 10] Atiende cliente 209 | espera=8ms | cajas=1
+[GEN]    Cliente 280 llega  | cola=71
+[GEN]    Cliente 281 llega  | cola=72
+[GEN]    Cliente 282 llega  | cola=73
+[CAJERO 10] Atiende cliente 210 | espera=8ms | cajas=1
+[GEN]    Cliente 283 llega  | cola=73
+[CAJERO 10] Atiende cliente 211 | espera=8ms | cajas=1
+[GEN]    Cliente 284 llega  | cola=73
+[CAJERO 10] Atiende cliente 212 | espera=8ms | cajas=1
+[GEN]    Cliente 285 llega  | cola=73
+[CAJERO 10] Atiende cliente 213 | espera=8ms | cajas=1
+[GEN]    Cliente 286 llega  | cola=73
+[CAJERO 10] Atiende cliente 214 | espera=8ms | cajas=1
+[GEN]    Cliente 287 llega  | cola=73
+[CAJERO 10] Atiende cliente 215 | espera=8ms | cajas=1
+[GEN]    Cliente 288 llega  | cola=73
+[CAJERO 10] Atiende cliente 216 | espera=8ms | cajas=1
+[GEN]    Cliente 289 llega  | cola=73
+[CAJERO 2] Atiende cliente 217 | espera=8ms | cajas=2
+[CAJERO 10] Atiende cliente 218 | espera=8ms | cajas=2
+[GEN]    Cliente 290 llega  | cola=72
+[CAJERO 1] Atiende cliente 219 | espera=8ms | cajas=3
+[CAJERO 10] Atiende cliente 220 | espera=8ms | cajas=3
+[CAJERO 1] Atiende cliente 221 | espera=8ms | cajas=3
+[GEN]    Cliente 291 llega  | cola=70
+[CAJERO 2] Atiende cliente 222 | espera=8ms | cajas=3
+[CAJERO 10] Atiende cliente 223 | espera=8ms | cajas=3
+[CAJERO 1] Atiende cliente 224 | espera=8ms | cajas=3
+[GEN]    Cliente 292 llega  | cola=68
+[CAJERO 10] Atiende cliente 225 | espera=8ms | cajas=3
+[CAJERO 1] Atiende cliente 227 | espera=7ms | cajas=2
+[CAJERO 2] Atiende cliente 226 | espera=8ms | cajas=3
+[CAJERO 5] Atiende cliente 228 | espera=7ms | cajas=4
+[GEN]    Cliente 293 llega  | cola=65
+[CAJERO 10] Atiende cliente 229 | espera=7ms | cajas=4
+[CAJERO 1] Atiende cliente 230 | espera=7ms | cajas=4
+[CAJERO 7] Atiende cliente 231 | espera=7ms | cajas=5
+[CAJERO 2] Atiende cliente 232 | espera=7ms | cajas=5
+[CAJERO 7] Atiende cliente 233 | espera=7ms | cajas=5
+[CAJERO 6] Atiende cliente 234 | espera=7ms | cajas=6
+[CAJERO 5] Atiende cliente 235 | espera=8ms | cajas=6
+[GEN]    Cliente 294 llega  | cola=59
+[CAJERO 4] Atiende cliente 236 | espera=8ms | cajas=7
+[CAJERO 10] Atiende cliente 237 | espera=7ms | cajas=7
+[CAJERO 1] Atiende cliente 238 | espera=7ms | cajas=7
+[CAJERO 2] Atiende cliente 239 | espera=7ms | cajas=7
+[CAJERO 7] Atiende cliente 240 | espera=7ms | cajas=7
+[CAJERO 3] Atiende cliente 241 | espera=7ms | cajas=8
+[CAJERO 6] Atiende cliente 242 | espera=7ms | cajas=8
+[CAJERO 8] Atiende cliente 243 | espera=7ms | cajas=9
+[CAJERO 5] Atiende cliente 244 | espera=7ms | cajas=9
+[CAJERO 4] Atiende cliente 245 | espera=6ms | cajas=9
+[GEN]    Cliente 295 llega  | cola=50
+[CAJERO 9] Atiende cliente 246 | espera=6ms | cajas=10
+[CAJERO 10] Atiende cliente 247 | espera=6ms | cajas=10
+[CAJERO 7] Atiende cliente 249 | espera=6ms | cajas=10
+[CAJERO 1] Atiende cliente 250 | espera=6ms | cajas=10
+[CAJERO 7] Atiende cliente 251 | espera=5ms | cajas=10
+[CAJERO 3] Atiende cliente 252 | espera=5ms | cajas=10
+[CAJERO 1] Atiende cliente 253 | espera=5ms | cajas=10
+[CAJERO 6] Atiende cliente 254 | espera=5ms | cajas=10
+[CAJERO 8] Atiende cliente 255 | espera=5ms | cajas=10
+[CAJERO 5] Atiende cliente 256 | espera=5ms | cajas=10
+[GEN]    Cliente 296 llega  | cola=40
+[CAJERO 9] Atiende cliente 257 | espera=5ms | cajas=10
+[CAJERO 4] Atiende cliente 258 | espera=6ms | cajas=10
+[CAJERO 2] Atiende cliente 248 | espera=6ms | cajas=10
+[CAJERO 10] Atiende cliente 259 | espera=6ms | cajas=10
+[CAJERO 7] Atiende cliente 260 | espera=5ms | cajas=10
+[CAJERO 1] Atiende cliente 261 | espera=5ms | cajas=10
+[CAJERO 3] Atiende cliente 262 | espera=5ms | cajas=10
+[CAJERO 1] Atiende cliente 263 | espera=5ms | cajas=10
+[CAJERO 7] Atiende cliente 264 | espera=5ms | cajas=10
+[CAJERO 6] Atiende cliente 265 | espera=5ms | cajas=10
+[CAJERO 8] Atiende cliente 266 | espera=5ms | cajas=10
+[CAJERO 5] Atiende cliente 267 | espera=5ms | cajas=10
+[GEN]    Cliente 297 llega  | cola=30
+[CAJERO 9] Atiende cliente 268 | espera=5ms | cajas=10
+[CAJERO 2] Atiende cliente 269 | espera=5ms | cajas=10
+[CAJERO 4] Atiende cliente 270 | espera=4ms | cajas=10
+[CAJERO 10] Atiende cliente 271 | espera=4ms | cajas=10
+[CAJERO 3] Atiende cliente 272 | espera=4ms | cajas=10
+[CAJERO 1] Atiende cliente 273 | espera=4ms | cajas=10
+[CAJERO 7] Atiende cliente 274 | espera=4ms | cajas=10
+[CAJERO 6] Atiende cliente 275 | espera=4ms | cajas=10
+[CAJERO 8] Atiende cliente 276 | espera=4ms | cajas=10
+[CAJERO 5] Atiende cliente 277 | espera=4ms | cajas=10
+[GEN]    Cliente 298 llega  | cola=21
+[CAJERO 9] Atiende cliente 278 | espera=4ms | cajas=10
+[CAJERO 5] Atiende cliente 279 | espera=4ms | cajas=10
+[GEN]    Cliente 299 llega  | cola=20
+[CAJERO 4] Atiende cliente 280 | espera=3ms | cajas=10
+[CAJERO 2] Atiende cliente 281 | espera=4ms | cajas=10
+[CAJERO 10] Atiende cliente 282 | espera=4ms | cajas=10
+[CAJERO 3] Atiende cliente 283 | espera=4ms | cajas=10
+[CAJERO 1] Atiende cliente 284 | espera=4ms | cajas=10
+[CAJERO 6] Atiende cliente 285 | espera=4ms | cajas=10
+[CAJERO 7] Atiende cliente 286 | espera=4ms | cajas=10
+[CAJERO 8] Atiende cliente 287 | espera=4ms | cajas=10
+[CAJERO 5] Atiende cliente 288 | espera=4ms | cajas=10
+[GEN]    Cliente 300 llega  | cola=12
+[CAJERO 9] Atiende cliente 289 | espera=3ms | cajas=10
+[CAJERO 4] Atiende cliente 290 | espera=3ms | cajas=10
+[CAJERO 2] Atiende cliente 291 | espera=3ms | cajas=10
+[CAJERO 10] Atiende cliente 292 | espera=3ms | cajas=10
+[CAJERO 3] Atiende cliente 293 | espera=3ms | cajas=10
+[CAJERO 1] Atiende cliente 294 | espera=2ms | cajas=10
+[CAJERO 6] Atiende cliente 295 | espera=2ms | cajas=10
+[CAJERO 7] Atiende cliente 296 | espera=2ms | cajas=10
+[CAJERO 8] Atiende cliente 297 | espera=1ms | cajas=10
+[CAJERO 5] Atiende cliente 298 | espera=1ms | cajas=10
+[GEN]    Cliente 301 llega  | cola=3
+[CAJERO 9] Atiende cliente 299 | espera=1ms | cajas=10
+[CAJERO 4] Atiende cliente 300 | espera=0ms | cajas=10
+[CAJERO 2] Atiende cliente 301 | espera=0ms | cajas=10
+[GEN]    Cliente 302 llega  | cola=1
+[CAJERO 9] Atiende cliente 302 | espera=0ms | cajas=3
+[GEN]    Cliente 303 llega  | cola=1
+[CAJERO 9] Atiende cliente 303 | espera=0ms | cajas=1
+[GEN]    Cliente 304 llega  | cola=1
+[CAJERO 9] Atiende cliente 304 | espera=0ms | cajas=1
+[GEN]    Cliente 305 llega  | cola=1
+[CAJERO 9] Atiende cliente 305 | espera=0ms | cajas=1
+[GEN]    Cliente 306 llega  | cola=1
+[CAJERO 9] Atiende cliente 306 | espera=0ms | cajas=1
+[GEN]    Cliente 307 llega  | cola=1
+[CAJERO 9] Atiende cliente 307 | espera=1ms | cajas=1
+[GEN]    Cliente 308 llega  | cola=1
+[CAJERO 9] Atiende cliente 308 | espera=0ms | cajas=1
+[GEN]    Cliente 309 llega  | cola=1
+[CAJERO 9] Atiende cliente 309 | espera=0ms | cajas=1
+[GEN]    Cliente 310 llega  | cola=1
+[CAJERO 9] Atiende cliente 310 | espera=0ms | cajas=1
+[GEN]    Cliente 311 llega  | cola=1
+[CAJERO 9] Atiende cliente 311 | espera=0ms | cajas=1
+[GEN]    Cliente 312 llega  | cola=1
+[CAJERO 9] Atiende cliente 312 | espera=0ms | cajas=1
+[GEN]    Cliente 313 llega  | cola=1
+[CAJERO 9] Atiende cliente 313 | espera=0ms | cajas=1
+[GEN]    Cliente 314 llega  | cola=1
+[CAJERO 9] Atiende cliente 314 | espera=0ms | cajas=1
+[GEN]    Cliente 315 llega  | cola=1
+[GEN]    Cliente 316 llega  | cola=1
+[CAJERO 9] Atiende cliente 315 | espera=0ms | cajas=1
+[GEN]    Cliente 317 llega  | cola=2
+[CAJERO 9] Atiende cliente 316 | espera=0ms | cajas=1
+[GEN]    Cliente 318 llega  | cola=2
+[CAJERO 9] Atiende cliente 317 | espera=0ms | cajas=1
+[GEN]    Cliente 319 llega  | cola=2
+[CAJERO 9] Atiende cliente 318 | espera=0ms | cajas=1
+[GEN]    Cliente 320 llega  | cola=2
+[CAJERO 9] Atiende cliente 319 | espera=0ms | cajas=1
+[GEN]    Cliente 321 llega  | cola=2
+[CAJERO 9] Atiende cliente 320 | espera=0ms | cajas=1
+[GEN]    Cliente 322 llega  | cola=2
+[CAJERO 9] Atiende cliente 321 | espera=0ms | cajas=1
+[GEN]    Cliente 323 llega  | cola=2
+[CAJERO 9] Atiende cliente 322 | espera=1ms | cajas=1
+[GEN]    Cliente 324 llega  | cola=2
+[CAJERO 9] Atiende cliente 323 | espera=0ms | cajas=1
+[GEN]    Cliente 325 llega  | cola=2
+[CAJERO 9] Atiende cliente 324 | espera=0ms | cajas=1
+[GEN]    Cliente 326 llega  | cola=2
+[CAJERO 9] Atiende cliente 325 | espera=0ms | cajas=1
+[GEN]    Cliente 327 llega  | cola=2
+[GEN]    Cliente 328 llega  | cola=2
+[CAJERO 9] Atiende cliente 326 | espera=0ms | cajas=1
+[GEN]    Cliente 329 llega  | cola=2
+[CAJERO 9] Atiende cliente 327 | espera=0ms | cajas=1
+[GEN]    Cliente 330 llega  | cola=3
+[CAJERO 9] Atiende cliente 328 | espera=0ms | cajas=1
+[GEN]    Cliente 331 llega  | cola=3
+[CAJERO 9] Atiende cliente 329 | espera=1ms | cajas=1
+[GEN]    Cliente 332 llega  | cola=3
+[CAJERO 9] Atiende cliente 330 | espera=1ms | cajas=1
+[GEN]    Cliente 333 llega  | cola=3
+[CAJERO 9] Atiende cliente 331 | espera=0ms | cajas=1
+[GEN]    Cliente 334 llega  | cola=3
+[CAJERO 9] Atiende cliente 332 | espera=0ms | cajas=1
+[GEN]    Cliente 335 llega  | cola=3
+[CAJERO 9] Atiende cliente 333 | espera=0ms | cajas=1
+[GEN]    Cliente 336 llega  | cola=3
+[CAJERO 9] Atiende cliente 334 | espera=0ms | cajas=1
+[GEN]    Cliente 337 llega  | cola=3
+[CAJERO 9] Atiende cliente 335 | espera=0ms | cajas=1
+[GEN]    Cliente 338 llega  | cola=3
+[CAJERO 9] Atiende cliente 336 | espera=0ms | cajas=1
+[GEN]    Cliente 339 llega  | cola=3
+[CAJERO 9] Atiende cliente 337 | espera=0ms | cajas=1
+[GEN]    Cliente 340 llega  | cola=3
+[CAJERO 9] Atiende cliente 338 | espera=0ms | cajas=1
+[GEN]    Cliente 341 llega  | cola=3
+[CAJERO 9] Atiende cliente 339 | espera=1ms | cajas=1
+[GEN]    Cliente 342 llega  | cola=3
+[CAJERO 9] Atiende cliente 340 | espera=1ms | cajas=1
+[GEN]    Cliente 343 llega  | cola=3
+[CAJERO 9] Atiende cliente 341 | espera=0ms | cajas=1
+[GEN]    Cliente 344 llega  | cola=3
+[CAJERO 9] Atiende cliente 342 | espera=0ms | cajas=1
+[GEN]    Cliente 345 llega  | cola=3
+[CAJERO 9] Atiende cliente 343 | espera=0ms | cajas=1
+[GEN]    Cliente 346 llega  | cola=3
+[CAJERO 9] Atiende cliente 344 | espera=0ms | cajas=1
+[GEN]    Cliente 347 llega  | cola=3
+[CAJERO 9] Atiende cliente 345 | espera=0ms | cajas=1
+[GEN]    Cliente 348 llega  | cola=3
+[CAJERO 9] Atiende cliente 346 | espera=0ms | cajas=1
+[GEN]    Cliente 349 llega  | cola=3
+[CAJERO 9] Atiende cliente 347 | espera=0ms | cajas=1
+[GEN]    Cliente 350 llega  | cola=3
+[CAJERO 9] Atiende cliente 348 | espera=1ms | cajas=1
+[GEN]    Cliente 351 llega  | cola=3
+[CAJERO 9] Atiende cliente 349 | espera=1ms | cajas=1
+[GEN]    Cliente 352 llega  | cola=3
+[CAJERO 9] Atiende cliente 350 | espera=1ms | cajas=1
+[GEN]    Cliente 353 llega  | cola=3
+[GEN]    Cliente 354 llega  | cola=4
+[CAJERO 9] Atiende cliente 351 | espera=0ms | cajas=1
+[GEN]    Cliente 355 llega  | cola=4
+[CAJERO 9] Atiende cliente 352 | espera=0ms | cajas=1
+[GEN]    Cliente 356 llega  | cola=4
+[CAJERO 9] Atiende cliente 353 | espera=1ms | cajas=1
+[GEN]    Cliente 357 llega  | cola=4
+[CAJERO 9] Atiende cliente 354 | espera=1ms | cajas=1
+[GEN]    Cliente 358 llega  | cola=4
+[CAJERO 9] Atiende cliente 355 | espera=1ms | cajas=1
+[GEN]    Cliente 359 llega  | cola=4
+[CAJERO 9] Atiende cliente 356 | espera=1ms | cajas=1
+[GEN]    Cliente 360 llega  | cola=4
+[CAJERO 9] Atiende cliente 357 | espera=1ms | cajas=1
+[GEN]    Cliente 361 llega  | cola=4
+[CAJERO 9] Atiende cliente 358 | espera=1ms | cajas=1
+[GEN]    Cliente 362 llega  | cola=4
+[CAJERO 9] Atiende cliente 359 | espera=1ms | cajas=1
+[GEN]    Cliente 363 llega  | cola=4
+[CAJERO 9] Atiende cliente 360 | espera=0ms | cajas=1
+[GEN]    Cliente 364 llega  | cola=4
+[CAJERO 9] Atiende cliente 361 | espera=0ms | cajas=1
+[GEN]    Cliente 365 llega  | cola=4
+[GEN]    Cliente 366 llega  | cola=5
+[CAJERO 9] Atiende cliente 362 | espera=1ms | cajas=1
+[GEN]    Cliente 367 llega  | cola=5
+[CAJERO 9] Atiende cliente 363 | espera=1ms | cajas=1
+[GEN]    Cliente 368 llega  | cola=5
+[CAJERO 9] Atiende cliente 364 | espera=1ms | cajas=1
+[GEN]    Cliente 369 llega  | cola=5
+[CAJERO 9] Atiende cliente 365 | espera=0ms | cajas=1
+[GEN]    Cliente 370 llega  | cola=5
+[CAJERO 9] Atiende cliente 366 | espera=0ms | cajas=1
+[GEN]    Cliente 371 llega  | cola=5
+[CAJERO 9] Atiende cliente 367 | espera=0ms | cajas=1
+[CAJERO 9] Atiende cliente 368 | espera=0ms | cajas=1
+[GEN]    Cliente 372 llega  | cola=4
+[GEN]    Cliente 373 llega  | cola=5
+[CAJERO 9] Atiende cliente 369 | espera=1ms | cajas=1
+[CAJERO 9] Atiende cliente 370 | espera=1ms | cajas=1
+[GEN]    Cliente 374 llega  | cola=4
+[CAJERO 5] Atiende cliente 371 | espera=1ms | cajas=2
+[CAJERO 10] Atiende cliente 372 | espera=1ms | cajas=3
+[CAJERO 4] Atiende cliente 373 | espera=1ms | cajas=4
+[CAJERO 2] Atiende cliente 374 | espera=0ms | cajas=5
+[GEN]    Cliente 375 llega  | cola=1
+[CAJERO 5] Atiende cliente 375 | espera=0ms | cajas=5
+[GEN]    Cliente 376 llega  | cola=1
+[CAJERO 5] Atiende cliente 376 | espera=0ms | cajas=1
+[GEN]    Cliente 377 llega  | cola=1
+[CAJERO 5] Atiende cliente 377 | espera=0ms | cajas=1
+[GEN]    Cliente 378 llega  | cola=1
+[CAJERO 5] Atiende cliente 378 | espera=0ms | cajas=1
+[GEN]    Cliente 379 llega  | cola=1
+[CAJERO 5] Atiende cliente 379 | espera=0ms | cajas=1
+[GEN]    Cliente 380 llega  | cola=1
+[CAJERO 5] Atiende cliente 380 | espera=0ms | cajas=1
+[GEN]    Cliente 381 llega  | cola=1
+[CAJERO 5] Atiende cliente 381 | espera=0ms | cajas=1
+[GEN]    Cliente 382 llega  | cola=1
+[CAJERO 5] Atiende cliente 382 | espera=0ms | cajas=1
+[GEN]    Cliente 383 llega  | cola=1
+[CAJERO 5] Atiende cliente 383 | espera=0ms | cajas=1
+[GEN]    Cliente 384 llega  | cola=1
+[CAJERO 5] Atiende cliente 384 | espera=0ms | cajas=1
+[GEN]    Cliente 385 llega  | cola=1
+[CAJERO 5] Atiende cliente 385 | espera=0ms | cajas=1
+[GEN]    Cliente 386 llega  | cola=1
+[CAJERO 5] Atiende cliente 386 | espera=0ms | cajas=1
+[GEN]    Cliente 387 llega  | cola=1
+[CAJERO 5] Atiende cliente 387 | espera=0ms | cajas=1
+[GEN]    Cliente 388 llega  | cola=1
+[CAJERO 5] Atiende cliente 388 | espera=0ms | cajas=1
+[GEN]    Cliente 389 llega  | cola=1
+[CAJERO 5] Atiende cliente 389 | espera=0ms | cajas=1
+[GEN]    Cliente 390 llega  | cola=1
+[CAJERO 5] Atiende cliente 390 | espera=0ms | cajas=1
+[GEN]    Cliente 391 llega  | cola=1
+[CAJERO 5] Atiende cliente 391 | espera=0ms | cajas=1
+[GEN]    Cliente 392 llega  | cola=1
+[CAJERO 5] Atiende cliente 392 | espera=0ms | cajas=1
+[GEN]    Cliente 393 llega  | cola=1
+[CAJERO 5] Atiende cliente 393 | espera=0ms | cajas=1
+[GEN]    Cliente 394 llega  | cola=1
+[CAJERO 5] Atiende cliente 394 | espera=0ms | cajas=1
+[GEN]    Cliente 395 llega  | cola=1
+[CAJERO 5] Atiende cliente 395 | espera=0ms | cajas=1
+[GEN]    Cliente 396 llega  | cola=1
+[CAJERO 5] Atiende cliente 396 | espera=0ms | cajas=1
+[GEN]    Cliente 397 llega  | cola=1
+[CAJERO 5] Atiende cliente 397 | espera=0ms | cajas=1
+[GEN]    Cliente 398 llega  | cola=1
+[CAJERO 5] Atiende cliente 398 | espera=0ms | cajas=1
+[GEN]    Cliente 399 llega  | cola=1
+[CAJERO 5] Atiende cliente 399 | espera=0ms | cajas=1
+[GEN]    Cliente 400 llega  | cola=1
+[CAJERO 5] Atiende cliente 400 | espera=0ms | cajas=1
+[GEN]    Cliente 401 llega  | cola=1
+[CAJERO 5] Atiende cliente 401 | espera=0ms | cajas=1
+[GEN]    Cliente 402 llega  | cola=1
+[CAJERO 5] Atiende cliente 402 | espera=0ms | cajas=1
+[GEN]    Cliente 403 llega  | cola=1
+[CAJERO 5] Atiende cliente 403 | espera=0ms | cajas=1
+[GEN]    Cliente 404 llega  | cola=1
+[CAJERO 5] Atiende cliente 404 | espera=0ms | cajas=1
+[GEN]    Cliente 405 llega  | cola=1
+[CAJERO 5] Atiende cliente 405 | espera=0ms | cajas=1
+[GEN]    Cliente 406 llega  | cola=1
+[CAJERO 5] Atiende cliente 406 | espera=0ms | cajas=1
+[GEN]    Cliente 407 llega  | cola=1
+[CAJERO 5] Atiende cliente 407 | espera=1ms | cajas=1
+[GEN]    Cliente 408 llega  | cola=1
+[CAJERO 5] Atiende cliente 408 | espera=0ms | cajas=1
+[GEN]    Cliente 409 llega  | cola=1
+[CAJERO 5] Atiende cliente 409 | espera=0ms | cajas=1
+[GEN]    Cliente 410 llega  | cola=1
+[CAJERO 5] Atiende cliente 410 | espera=0ms | cajas=1
+[GEN]    Cliente 411 llega  | cola=1
+[CAJERO 5] Atiende cliente 411 | espera=0ms | cajas=1
+[GEN]    Cliente 412 llega  | cola=1
+[CAJERO 5] Atiende cliente 412 | espera=0ms | cajas=1
+[GEN]    Cliente 413 llega  | cola=1
+[CAJERO 5] Atiende cliente 413 | espera=0ms | cajas=1
+[GEN]    Cliente 414 llega  | cola=1
+[CAJERO 5] Atiende cliente 414 | espera=0ms | cajas=1
+[GEN]    Cliente 415 llega  | cola=1
+[CAJERO 5] Atiende cliente 415 | espera=0ms | cajas=1
+[GEN]    Cliente 416 llega  | cola=1
+[CAJERO 5] Atiende cliente 416 | espera=1ms | cajas=1
+[GEN]    Cliente 417 llega  | cola=1
+[CAJERO 5] Atiende cliente 417 | espera=0ms | cajas=1
+[GEN]    Cliente 418 llega  | cola=1
+[CAJERO 5] Atiende cliente 418 | espera=0ms | cajas=1
+[GEN]    Cliente 419 llega  | cola=1
+[CAJERO 5] Atiende cliente 419 | espera=0ms | cajas=1
+[GEN]    Cliente 420 llega  | cola=1
+[CAJERO 5] Atiende cliente 420 | espera=0ms | cajas=1
+[GEN]    Cliente 421 llega  | cola=1
+[CAJERO 5] Atiende cliente 421 | espera=0ms | cajas=1
+[GEN]    Cliente 422 llega  | cola=1
+[CAJERO 5] Atiende cliente 422 | espera=0ms | cajas=1
+[GEN]    Cliente 423 llega  | cola=1
+[CAJERO 5] Atiende cliente 423 | espera=0ms | cajas=1
+[GEN]    Cliente 424 llega  | cola=1
+[CAJERO 5] Atiende cliente 424 | espera=0ms | cajas=1
+[GEN]    Cliente 425 llega  | cola=1
+[CAJERO 5] Atiende cliente 425 | espera=0ms | cajas=1
+[GEN]    Cliente 426 llega  | cola=1
+[CAJERO 5] Atiende cliente 426 | espera=0ms | cajas=1
+[GEN]    Cliente 427 llega  | cola=1
+[CAJERO 5] Atiende cliente 427 | espera=0ms | cajas=1
+[GEN]    Cliente 428 llega  | cola=1
+[CAJERO 5] Atiende cliente 428 | espera=0ms | cajas=1
+[GEN]    Cliente 429 llega  | cola=1
+[CAJERO 5] Atiende cliente 429 | espera=0ms | cajas=1
+[GEN]    Cliente 430 llega  | cola=1
+[CAJERO 5] Atiende cliente 430 | espera=0ms | cajas=1
+[GEN]    Cliente 431 llega  | cola=1
+[CAJERO 5] Atiende cliente 431 | espera=0ms | cajas=1
+[GEN]    Cliente 432 llega  | cola=1
+[CAJERO 5] Atiende cliente 432 | espera=0ms | cajas=1
+[GEN]    Cliente 433 llega  | cola=1
+[CAJERO 5] Atiende cliente 433 | espera=0ms | cajas=1
+[GEN]    Cliente 434 llega  | cola=1
+[CAJERO 5] Atiende cliente 434 | espera=0ms | cajas=1
+[GEN]    Cliente 435 llega  | cola=1
+[CAJERO 5] Atiende cliente 435 | espera=1ms | cajas=1
+[GEN]    Cliente 436 llega  | cola=1
+[CAJERO 5] Atiende cliente 436 | espera=0ms | cajas=1
+[GEN]    Cliente 437 llega  | cola=1
+[CAJERO 5] Atiende cliente 437 | espera=0ms | cajas=1
+[GEN]    Cliente 438 llega  | cola=1
+[CAJERO 5] Atiende cliente 438 | espera=0ms | cajas=1
+[GEN]    Cliente 439 llega  | cola=1
+[CAJERO 5] Atiende cliente 439 | espera=0ms | cajas=1
+[GEN]    Cliente 440 llega  | cola=1
+[CAJERO 5] Atiende cliente 440 | espera=0ms | cajas=1
+[GEN]    Cliente 441 llega  | cola=1
+[CAJERO 5] Atiende cliente 441 | espera=0ms | cajas=1
+[GEN]    Cliente 442 llega  | cola=1
+[CAJERO 5] Atiende cliente 442 | espera=0ms | cajas=1
+[GEN]    Cliente 443 llega  | cola=1
+[CAJERO 5] Atiende cliente 443 | espera=0ms | cajas=1
+[GEN]    Cliente 444 llega  | cola=1
+[CAJERO 5] Atiende cliente 444 | espera=1ms | cajas=1
+[GEN]    Cliente 445 llega  | cola=1
+[CAJERO 5] Atiende cliente 445 | espera=0ms | cajas=1
+[GEN]    Cliente 446 llega  | cola=1
+[CAJERO 5] Atiende cliente 446 | espera=0ms | cajas=1
+[GEN]    Cliente 447 llega  | cola=1
+[CAJERO 5] Atiende cliente 447 | espera=0ms | cajas=1
+[GEN]    Cliente 448 llega  | cola=1
+[CAJERO 5] Atiende cliente 448 | espera=0ms | cajas=1
+[GEN]    Cliente 449 llega  | cola=1
+[CAJERO 5] Atiende cliente 449 | espera=0ms | cajas=1
+[GEN]    Cliente 450 llega  | cola=1
+[CAJERO 5] Atiende cliente 450 | espera=0ms | cajas=1
+[GEN]    Cliente 451 llega  | cola=1
+[CAJERO 5] Atiende cliente 451 | espera=0ms | cajas=1
+[GEN]    Cliente 452 llega  | cola=1
+[CAJERO 5] Atiende cliente 452 | espera=0ms | cajas=1
+[GEN]    Cliente 453 llega  | cola=1
+[CAJERO 5] Atiende cliente 453 | espera=1ms | cajas=1
+[GEN]    Cliente 454 llega  | cola=1
+[CAJERO 5] Atiende cliente 454 | espera=0ms | cajas=1
+[GEN]    Cliente 455 llega  | cola=1
+[CAJERO 5] Atiende cliente 455 | espera=0ms | cajas=1
+[GEN]    Cliente 456 llega  | cola=1
+[CAJERO 5] Atiende cliente 456 | espera=0ms | cajas=1
+[GEN]    Cliente 457 llega  | cola=1
+[CAJERO 5] Atiende cliente 457 | espera=0ms | cajas=1
+[GEN]    Cliente 458 llega  | cola=1
+[CAJERO 5] Atiende cliente 458 | espera=0ms | cajas=1
+[GEN]    Cliente 459 llega  | cola=1
+[CAJERO 5] Atiende cliente 459 | espera=0ms | cajas=1
+[GEN]    Cliente 460 llega  | cola=1
+[CAJERO 5] Atiende cliente 460 | espera=0ms | cajas=1
+[GEN]    Cliente 461 llega  | cola=1
+[CAJERO 5] Atiende cliente 461 | espera=0ms | cajas=1
+[GEN]    Cliente 462 llega  | cola=1
+[CAJERO 5] Atiende cliente 462 | espera=1ms | cajas=1
+[GEN]    Cliente 463 llega  | cola=1
+[CAJERO 5] Atiende cliente 463 | espera=0ms | cajas=1
+[GEN]    Cliente 464 llega  | cola=1
+[CAJERO 5] Atiende cliente 464 | espera=0ms | cajas=1
+[GEN]    Cliente 465 llega  | cola=1
+[CAJERO 5] Atiende cliente 465 | espera=0ms | cajas=1
+[GEN]    Cliente 466 llega  | cola=1
+[CAJERO 5] Atiende cliente 466 | espera=0ms | cajas=1
+[CAJERO 8] Atiende cliente 467 | espera=0ms | cajas=2
+[GEN]    Cliente 467 llega  | cola=1
+[GEN]    Cliente 468 llega  | cola=1
+[GEN]    Cliente 469 llega  | cola=2
+[GEN]    Cliente 470 llega  | cola=3
+[GEN]    Cliente 471 llega  | cola=4
+[GEN]    Cliente 472 llega  | cola=5
+[GEN]    Cliente 473 llega  | cola=6
+[GEN]    Cliente 474 llega  | cola=7
+[GEN]    Cliente 475 llega  | cola=8
+[GEN]    Cliente 476 llega  | cola=9
+[GEN]    Cliente 477 llega  | cola=10
+[GEN]    Cliente 478 llega  | cola=11
+[GEN]    Cliente 479 llega  | cola=12
+[GEN]    Cliente 480 llega  | cola=13
+[GEN]    Cliente 481 llega  | cola=14
+[GEN]    Cliente 482 llega  | cola=15
+[GEN]    Cliente 483 llega  | cola=16
+[GEN]    Cliente 484 llega  | cola=17
+[GEN]    Cliente 485 llega  | cola=18
+[GEN]    Cliente 486 llega  | cola=19
+[GEN]    Cliente 487 llega  | cola=20
+[GEN]    Cliente 488 llega  | cola=21
+[GEN]    Cliente 489 llega  | cola=22
+[GEN]    Cliente 490 llega  | cola=23
+[GEN]    Cliente 491 llega  | cola=24
+[GEN]    Cliente 492 llega  | cola=25
+[GEN]    Cliente 493 llega  | cola=26
+[GEN]    Cliente 494 llega  | cola=27
+[GEN]    Cliente 495 llega  | cola=28
+[GEN]    Cliente 496 llega  | cola=29
+[GEN]    Cliente 497 llega  | cola=30
+[GEN]    Cliente 498 llega  | cola=31
+[GEN]    Cliente 499 llega  | cola=32
+[GEN]    Cliente 500 llega  | cola=33
+[GEN]    Cliente 501 llega  | cola=34
+[GEN]    Cliente 502 llega  | cola=35
+[GEN]    Cliente 503 llega  | cola=36
+[GEN]    Cliente 504 llega  | cola=37
+[GEN]    Cliente 505 llega  | cola=38
+[GEN]    Cliente 506 llega  | cola=39
+[GEN]    Cliente 507 llega  | cola=40
+[GEN]    Cliente 508 llega  | cola=41
+[GEN]    Cliente 509 llega  | cola=42
+[GEN]    Cliente 510 llega  | cola=43
+[GEN]    Cliente 511 llega  | cola=44
+[GEN]    Cliente 512 llega  | cola=45
+[GEN]    Cliente 513 llega  | cola=46
+[GEN]    Cliente 514 llega  | cola=47
+[GEN]    Cliente 515 llega  | cola=48
+[GEN]    Cliente 516 llega  | cola=49
+[GEN]    Cliente 517 llega  | cola=50
+[GEN]    Cliente 518 llega  | cola=51
+[GEN]    Cliente 519 llega  | cola=52
+[GEN]    Cliente 520 llega  | cola=53
+[GEN]    Cliente 521 llega  | cola=54
+[GEN]    Cliente 522 llega  | cola=55
+[GEN]    Cliente 523 llega  | cola=56
+[GEN]    Cliente 524 llega  | cola=57
+[GEN]    Cliente 525 llega  | cola=58
+[GEN]    Cliente 526 llega  | cola=59
+[GEN]    Cliente 527 llega  | cola=60
+[GEN]    Cliente 528 llega  | cola=61
+[GEN]    Cliente 529 llega  | cola=62
+[GEN]    Cliente 530 llega  | cola=63
+[GEN]    Cliente 531 llega  | cola=64
+[GEN]    Cliente 532 llega  | cola=65
+[GEN]    Cliente 533 llega  | cola=66
+[GEN]    Cliente 534 llega  | cola=67
+[GEN]    Cliente 535 llega  | cola=68
+[GEN]    Cliente 536 llega  | cola=69
+[GEN]    Cliente 537 llega  | cola=70
+[GEN]    Cliente 538 llega  | cola=71
+[GEN]    Cliente 539 llega  | cola=72
+[GEN]    Cliente 540 llega  | cola=73
+[GEN]    Cliente 541 llega  | cola=74
+[GEN]    Cliente 542 llega  | cola=75
+[GEN]    Cliente 543 llega  | cola=76
+[GEN]    Cliente 544 llega  | cola=77
+[GEN]    Cliente 545 llega  | cola=78
+[GEN]    Cliente 546 llega  | cola=79
+[GEN]    Cliente 547 llega  | cola=80
+[GEN]    Cliente 548 llega  | cola=81
+[GEN]    Cliente 549 llega  | cola=82
+[GEN]    Cliente 550 llega  | cola=83
+[CAJERO 9] Atiende cliente 468 | espera=9ms | cajas=1
+[CAJERO 4] Atiende cliente 469 | espera=9ms | cajas=2
+[CAJERO 4] Atiende cliente 470 | espera=10ms | cajas=2
+[CAJERO 9] Atiende cliente 471 | espera=10ms | cajas=2
+[GEN]    Cliente 551 llega  | cola=80
+[CAJERO 5] Atiende cliente 472 | espera=10ms | cajas=3
+[CAJERO 1] Atiende cliente 473 | espera=10ms | cajas=4
+[CAJERO 6] Atiende cliente 474 | espera=10ms | cajas=5
+[CAJERO 7] Atiende cliente 475 | espera=10ms | cajas=6
+[CAJERO 3] Atiende cliente 476 | espera=10ms | cajas=7
+[CAJERO 10] Atiende cliente 477 | espera=9ms | cajas=8
+[CAJERO 2] Atiende cliente 478 | espera=9ms | cajas=9
+[CAJERO 8] Atiende cliente 479 | espera=9ms | cajas=10
+[CAJERO 4] Atiende cliente 480 | espera=9ms | cajas=10
+[CAJERO 9] Atiende cliente 481 | espera=9ms | cajas=10
+[GEN]    Cliente 552 llega  | cola=71
+[CAJERO 5] Atiende cliente 482 | espera=9ms | cajas=10
+[CAJERO 1] Atiende cliente 483 | espera=9ms | cajas=10
+[CAJERO 6] Atiende cliente 484 | espera=9ms | cajas=10
+[CAJERO 7] Atiende cliente 485 | espera=8ms | cajas=10
+[CAJERO 3] Atiende cliente 486 | espera=8ms | cajas=10
+[CAJERO 10] Atiende cliente 487 | espera=8ms | cajas=10
+[CAJERO 2] Atiende cliente 488 | espera=7ms | cajas=10
+[CAJERO 8] Atiende cliente 489 | espera=7ms | cajas=10
+[CAJERO 4] Atiende cliente 490 | espera=7ms | cajas=10
+[CAJERO 9] Atiende cliente 491 | espera=7ms | cajas=10
+[GEN]    Cliente 553 llega  | cola=62
+[CAJERO 5] Atiende cliente 492 | espera=7ms | cajas=10
+[CAJERO 1] Atiende cliente 493 | espera=8ms | cajas=10
+[CAJERO 6] Atiende cliente 494 | espera=8ms | cajas=10
+[CAJERO 7] Atiende cliente 495 | espera=8ms | cajas=10
+[CAJERO 3] Atiende cliente 496 | espera=7ms | cajas=10
+[CAJERO 10] Atiende cliente 497 | espera=7ms | cajas=10
+[CAJERO 2] Atiende cliente 498 | espera=7ms | cajas=10
+[CAJERO 4] Atiende cliente 499 | espera=7ms | cajas=10
+[CAJERO 8] Atiende cliente 500 | espera=7ms | cajas=10
+[CAJERO 9] Atiende cliente 501 | espera=7ms | cajas=10
+[GEN]    Cliente 554 llega  | cola=53
+[CAJERO 5] Atiende cliente 502 | espera=7ms | cajas=10
+[CAJERO 1] Atiende cliente 503 | espera=7ms | cajas=10
+[CAJERO 6] Atiende cliente 504 | espera=7ms | cajas=10
+[CAJERO 7] Atiende cliente 505 | espera=7ms | cajas=10
+[CAJERO 3] Atiende cliente 506 | espera=6ms | cajas=10
+[CAJERO 10] Atiende cliente 507 | espera=6ms | cajas=10
+[CAJERO 2] Atiende cliente 508 | espera=6ms | cajas=10
+[CAJERO 4] Atiende cliente 509 | espera=6ms | cajas=10
+[CAJERO 8] Atiende cliente 510 | espera=6ms | cajas=10
+[CAJERO 9] Atiende cliente 511 | espera=6ms | cajas=10
+[GEN]    Cliente 555 llega  | cola=44
+[CAJERO 5] Atiende cliente 512 | espera=6ms | cajas=10
+[CAJERO 1] Atiende cliente 513 | espera=6ms | cajas=10
+[CAJERO 6] Atiende cliente 514 | espera=6ms | cajas=10
+[CAJERO 7] Atiende cliente 515 | espera=5ms | cajas=10
+[CAJERO 3] Atiende cliente 516 | espera=5ms | cajas=10
+[CAJERO 10] Atiende cliente 517 | espera=6ms | cajas=10
+[CAJERO 2] Atiende cliente 518 | espera=6ms | cajas=10
+[CAJERO 4] Atiende cliente 519 | espera=6ms | cajas=10
+[CAJERO 8] Atiende cliente 520 | espera=6ms | cajas=10
+[CAJERO 9] Atiende cliente 521 | espera=6ms | cajas=10
+[CAJERO 1] Atiende cliente 523 | espera=6ms | cajas=10
+[CAJERO 3] Atiende cliente 524 | espera=6ms | cajas=9
+[CAJERO 6] Atiende cliente 525 | espera=5ms | cajas=10
+[CAJERO 7] Atiende cliente 526 | espera=5ms | cajas=10
+[CAJERO 10] Atiende cliente 527 | espera=5ms | cajas=10
+[CAJERO 2] Atiende cliente 528 | espera=5ms | cajas=10
+[CAJERO 4] Atiende cliente 529 | espera=5ms | cajas=10
+[CAJERO 8] Atiende cliente 530 | espera=5ms | cajas=10
+[GEN]    Cliente 556 llega  | cola=35
+[CAJERO 5] Atiende cliente 522 | espera=6ms | cajas=10
+[CAJERO 9] Atiende cliente 531 | espera=5ms | cajas=10
+[CAJERO 6] Atiende cliente 532 | espera=5ms | cajas=10
+[CAJERO 7] Atiende cliente 533 | espera=4ms | cajas=10
+[CAJERO 1] Atiende cliente 534 | espera=4ms | cajas=10
+[CAJERO 6] Atiende cliente 535 | espera=4ms | cajas=10
+[CAJERO 7] Atiende cliente 536 | espera=4ms | cajas=10
+[CAJERO 1] Atiende cliente 537 | espera=4ms | cajas=10
+[CAJERO 3] Atiende cliente 538 | espera=4ms | cajas=10
+[CAJERO 10] Atiende cliente 539 | espera=5ms | cajas=10
+[CAJERO 2] Atiende cliente 540 | espera=5ms | cajas=10
+[CAJERO 4] Atiende cliente 541 | espera=5ms | cajas=10
+[CAJERO 8] Atiende cliente 542 | espera=5ms | cajas=10
+[GEN]    Cliente 557 llega  | cola=15
+[CAJERO 5] Atiende cliente 543 | espera=5ms | cajas=10
+[CAJERO 9] Atiende cliente 544 | espera=4ms | cajas=10
+[CAJERO 6] Atiende cliente 545 | espera=4ms | cajas=10
+[CAJERO 3] Atiende cliente 546 | espera=4ms | cajas=10
+[CAJERO 1] Atiende cliente 547 | espera=4ms | cajas=10
+[CAJERO 7] Atiende cliente 548 | espera=4ms | cajas=10
+[CAJERO 10] Atiende cliente 549 | espera=4ms | cajas=10
+[CAJERO 2] Atiende cliente 550 | espera=4ms | cajas=10
+[CAJERO 4] Atiende cliente 551 | espera=3ms | cajas=10
+[CAJERO 8] Atiende cliente 552 | espera=3ms | cajas=10
+[GEN]    Cliente 558 llega  | cola=6
+[CAJERO 5] Atiende cliente 553 | espera=3ms | cajas=10
+[CAJERO 9] Atiende cliente 554 | espera=2ms | cajas=10
+[CAJERO 6] Atiende cliente 555 | espera=2ms | cajas=10
+[CAJERO 3] Atiende cliente 556 | espera=1ms | cajas=10
+[CAJERO 7] Atiende cliente 557 | espera=0ms | cajas=10
+[CAJERO 1] Atiende cliente 558 | espera=0ms | cajas=10
+[GEN]    Cliente 559 llega  | cola=1
+[CAJERO 5] Atiende cliente 559 | espera=0ms | cajas=6
+[GEN]    Cliente 560 llega  | cola=1
+[CAJERO 5] Atiende cliente 560 | espera=0ms | cajas=1
+[GEN]    Cliente 561 llega  | cola=1
+[CAJERO 5] Atiende cliente 561 | espera=0ms | cajas=1
+[GEN]    Cliente 562 llega  | cola=1
+[CAJERO 5] Atiende cliente 562 | espera=0ms | cajas=1
+[GEN]    Cliente 563 llega  | cola=1
+[CAJERO 5] Atiende cliente 563 | espera=0ms | cajas=1
+[GEN]    Cliente 564 llega  | cola=1
+[CAJERO 5] Atiende cliente 564 | espera=0ms | cajas=1
+[GEN]    Cliente 565 llega  | cola=1
+[CAJERO 5] Atiende cliente 565 | espera=0ms | cajas=1
+[GEN]    Cliente 566 llega  | cola=1
+[CAJERO 5] Atiende cliente 566 | espera=0ms | cajas=1
+[GEN]    Cliente 567 llega  | cola=1
+[CAJERO 5] Atiende cliente 567 | espera=0ms | cajas=1
+[GEN]    Cliente 568 llega  | cola=1
+[CAJERO 5] Atiende cliente 568 | espera=0ms | cajas=1
+[GEN]    Cliente 569 llega  | cola=1
+[CAJERO 5] Atiende cliente 569 | espera=0ms | cajas=1
+[GEN]    Cliente 570 llega  | cola=1
+[CAJERO 5] Atiende cliente 570 | espera=0ms | cajas=1
+[GEN]    Cliente 571 llega  | cola=1
+[CAJERO 5] Atiende cliente 571 | espera=0ms | cajas=1
+[GEN]    Cliente 572 llega  | cola=1
+[CAJERO 5] Atiende cliente 572 | espera=0ms | cajas=1
+[GEN]    Cliente 573 llega  | cola=1
+[CAJERO 5] Atiende cliente 573 | espera=0ms | cajas=1
+[GEN]    Cliente 574 llega  | cola=1
+[CAJERO 5] Atiende cliente 574 | espera=0ms | cajas=1
+[GEN]    Cliente 575 llega  | cola=1
+[CAJERO 5] Atiende cliente 575 | espera=0ms | cajas=1
+[GEN]    Cliente 576 llega  | cola=1
+[CAJERO 5] Atiende cliente 576 | espera=0ms | cajas=1
+[GEN]    Cliente 577 llega  | cola=1
+[CAJERO 5] Atiende cliente 577 | espera=0ms | cajas=1
+[GEN]    Cliente 578 llega  | cola=1
+[CAJERO 5] Atiende cliente 578 | espera=0ms | cajas=1
+[GEN]    Cliente 579 llega  | cola=1
+[CAJERO 5] Atiende cliente 579 | espera=0ms | cajas=1
+[GEN]    Cliente 580 llega  | cola=1
+[CAJERO 5] Atiende cliente 580 | espera=0ms | cajas=1
+[GEN]    Cliente 581 llega  | cola=1
+[CAJERO 5] Atiende cliente 581 | espera=0ms | cajas=1
+[GEN]    Cliente 582 llega  | cola=1
+[CAJERO 5] Atiende cliente 582 | espera=0ms | cajas=1
+[GEN]    Cliente 583 llega  | cola=1
+[CAJERO 5] Atiende cliente 583 | espera=0ms | cajas=1
+[GEN]    Cliente 584 llega  | cola=1
+[CAJERO 5] Atiende cliente 584 | espera=0ms | cajas=1
+[GEN]    Cliente 585 llega  | cola=1
+[CAJERO 5] Atiende cliente 585 | espera=0ms | cajas=1
+[GEN]    Cliente 586 llega  | cola=1
+[CAJERO 5] Atiende cliente 586 | espera=0ms | cajas=1
+[GEN]    Cliente 587 llega  | cola=1
+[CAJERO 5] Atiende cliente 587 | espera=1ms | cajas=1
+[GEN]    Cliente 588 llega  | cola=1
+[CAJERO 5] Atiende cliente 588 | espera=0ms | cajas=1
+[GEN]    Cliente 589 llega  | cola=1
+[CAJERO 5] Atiende cliente 589 | espera=0ms | cajas=1
+[GEN]    Cliente 590 llega  | cola=1
+[CAJERO 5] Atiende cliente 590 | espera=0ms | cajas=1
+[GEN]    Cliente 591 llega  | cola=1
+[CAJERO 5] Atiende cliente 591 | espera=0ms | cajas=1
+[GEN]    Cliente 592 llega  | cola=1
+[CAJERO 5] Atiende cliente 592 | espera=0ms | cajas=1
+[GEN]    Cliente 593 llega  | cola=1
+[CAJERO 5] Atiende cliente 593 | espera=0ms | cajas=1
+[GEN]    Cliente 594 llega  | cola=1
+[CAJERO 5] Atiende cliente 594 | espera=0ms | cajas=1
+[GEN]    Cliente 595 llega  | cola=1
+[CAJERO 5] Atiende cliente 595 | espera=1ms | cajas=1
+[GEN]    Cliente 596 llega  | cola=1
+[CAJERO 5] Atiende cliente 596 | espera=0ms | cajas=1
+[GEN]    Cliente 597 llega  | cola=1
+[GEN]    Cliente 598 llega  | cola=2
+[GEN]    Cliente 599 llega  | cola=3
+[GEN]    Cliente 600 llega  | cola=4
+[GEN]    Cliente 601 llega  | cola=5
+[GEN]    Cliente 602 llega  | cola=6
+[GEN]    Cliente 603 llega  | cola=7
+[GEN]    Cliente 604 llega  | cola=8
+[GEN]    Cliente 605 llega  | cola=9
+[GEN]    Cliente 606 llega  | cola=10
+[GEN]    Cliente 607 llega  | cola=11
+[GEN]    Cliente 608 llega  | cola=12
+[GEN]    Cliente 609 llega  | cola=13
+[GEN]    Cliente 610 llega  | cola=14
+[GEN]    Cliente 611 llega  | cola=15
+[GEN]    Cliente 612 llega  | cola=16
+[GEN]    Cliente 613 llega  | cola=17
+[GEN]    Cliente 614 llega  | cola=18
+[GEN]    Cliente 615 llega  | cola=19
+[GEN]    Cliente 616 llega  | cola=20
+[GEN]    Cliente 617 llega  | cola=21
+[GEN]    Cliente 618 llega  | cola=22
+[GEN]    Cliente 619 llega  | cola=23
+[GEN]    Cliente 620 llega  | cola=24
+[GEN]    Cliente 621 llega  | cola=25
+[GEN]    Cliente 622 llega  | cola=26
+[GEN]    Cliente 623 llega  | cola=27
+[GEN]    Cliente 624 llega  | cola=28
+[GEN]    Cliente 625 llega  | cola=29
+[GEN]    Cliente 626 llega  | cola=30
+[GEN]    Cliente 627 llega  | cola=31
+[GEN]    Cliente 628 llega  | cola=32
+[GEN]    Cliente 629 llega  | cola=33
+[GEN]    Cliente 630 llega  | cola=34
+[GEN]    Cliente 631 llega  | cola=35
+[GEN]    Cliente 632 llega  | cola=36
+[GEN]    Cliente 633 llega  | cola=37
+[GEN]    Cliente 634 llega  | cola=38
+[GEN]    Cliente 635 llega  | cola=39
+[GEN]    Cliente 636 llega  | cola=40
+[GEN]    Cliente 637 llega  | cola=41
+[GEN]    Cliente 638 llega  | cola=42
+[GEN]    Cliente 639 llega  | cola=43
+[CAJERO 10] Atiende cliente 597 | espera=4ms | cajas=1
+[CAJERO 2] Atiende cliente 598 | espera=4ms | cajas=2
+[CAJERO 4] Atiende cliente 599 | espera=5ms | cajas=3
+[CAJERO 8] Atiende cliente 600 | espera=5ms | cajas=4
+[GEN]    Cliente 640 llega  | cola=40
+[CAJERO 9] Atiende cliente 601 | espera=5ms | cajas=5
+[CAJERO 3] Atiende cliente 602 | espera=5ms | cajas=6
+[CAJERO 10] Atiende cliente 603 | espera=5ms | cajas=6
+[CAJERO 2] Atiende cliente 604 | espera=5ms | cajas=6
+[CAJERO 6] Atiende cliente 605 | espera=4ms | cajas=7
+[CAJERO 7] Atiende cliente 606 | espera=4ms | cajas=8
+[CAJERO 1] Atiende cliente 607 | espera=4ms | cajas=9
+[CAJERO 8] Atiende cliente 608 | espera=4ms | cajas=8
+[CAJERO 4] Atiende cliente 609 | espera=4ms | cajas=9
+[GEN]    Cliente 641 llega  | cola=32
+[CAJERO 9] Atiende cliente 610 | espera=4ms | cajas=9
+[CAJERO 3] Atiende cliente 611 | espera=4ms | cajas=9
+[CAJERO 10] Atiende cliente 612 | espera=4ms | cajas=9
+[CAJERO 2] Atiende cliente 613 | espera=3ms | cajas=9
+[CAJERO 1] Atiende cliente 614 | espera=3ms | cajas=9
+[CAJERO 6] Atiende cliente 615 | espera=3ms | cajas=9
+[CAJERO 7] Atiende cliente 616 | espera=3ms | cajas=9
+[CAJERO 8] Atiende cliente 617 | espera=3ms | cajas=9
+[CAJERO 4] Atiende cliente 618 | espera=3ms | cajas=9
+[GEN]    Cliente 642 llega  | cola=24
+[CAJERO 9] Atiende cliente 619 | espera=3ms | cajas=9
+[CAJERO 3] Atiende cliente 620 | espera=4ms | cajas=9
+[CAJERO 3] Atiende cliente 621 | espera=4ms | cajas=9
+[CAJERO 10] Atiende cliente 622 | espera=4ms | cajas=9
+[CAJERO 2] Atiende cliente 623 | espera=3ms | cajas=8
+[CAJERO 6] Atiende cliente 624 | espera=3ms | cajas=9
+[CAJERO 1] Atiende cliente 625 | espera=3ms | cajas=8
+[CAJERO 7] Atiende cliente 626 | espera=3ms | cajas=9
+[CAJERO 4] Atiende cliente 627 | espera=3ms | cajas=9
+[CAJERO 8] Atiende cliente 628 | espera=3ms | cajas=9
+[GEN]    Cliente 643 llega  | cola=15
+[CAJERO 9] Atiende cliente 629 | espera=3ms | cajas=9
+[CAJERO 3] Atiende cliente 630 | espera=3ms | cajas=9
+[CAJERO 10] Atiende cliente 631 | espera=3ms | cajas=9
+[CAJERO 6] Atiende cliente 632 | espera=3ms | cajas=9
+[CAJERO 7] Atiende cliente 633 | espera=2ms | cajas=9
+[CAJERO 2] Atiende cliente 634 | espera=2ms | cajas=9
+[CAJERO 4] Atiende cliente 635 | espera=2ms | cajas=8
+[CAJERO 1] Atiende cliente 636 | espera=2ms | cajas=9
+[CAJERO 8] Atiende cliente 637 | espera=2ms | cajas=9
+[GEN]    Cliente 644 llega  | cola=7
+[CAJERO 9] Atiende cliente 638 | espera=2ms | cajas=9
+[CAJERO 3] Atiende cliente 639 | espera=2ms | cajas=9
+[CAJERO 10] Atiende cliente 640 | espera=1ms | cajas=9
+[CAJERO 10] Atiende cliente 642 | espera=2ms | cajas=8
+[CAJERO 6] Atiende cliente 641 | espera=2ms | cajas=9
+[CAJERO 7] Atiende cliente 643 | espera=1ms | cajas=9
+[CAJERO 2] Atiende cliente 644 | espera=1ms | cajas=9
+[GEN]    Cliente 645 llega  | cola=1
+[CAJERO 8] Atiende cliente 645 | espera=0ms | cajas=7
+[GEN]    Cliente 646 llega  | cola=1
+[CAJERO 8] Atiende cliente 646 | espera=0ms | cajas=1
+[GEN]    Cliente 647 llega  | cola=1
+[CAJERO 8] Atiende cliente 647 | espera=0ms | cajas=1
+[GEN]    Cliente 648 llega  | cola=1
+[CAJERO 8] Atiende cliente 648 | espera=0ms | cajas=1
+[GEN]    Cliente 649 llega  | cola=1
+[CAJERO 8] Atiende cliente 649 | espera=0ms | cajas=1
+[GEN]    Cliente 650 llega  | cola=1
+[CAJERO 8] Atiende cliente 650 | espera=0ms | cajas=1
+[GEN]    Cliente 651 llega  | cola=1
+[CAJERO 8] Atiende cliente 651 | espera=1ms | cajas=1
+[GEN]    Cliente 652 llega  | cola=1
+[CAJERO 8] Atiende cliente 652 | espera=0ms | cajas=1
+[GEN]    Cliente 653 llega  | cola=1
+[CAJERO 8] Atiende cliente 653 | espera=0ms | cajas=1
+[GEN]    Cliente 654 llega  | cola=1
+[CAJERO 8] Atiende cliente 654 | espera=0ms | cajas=1
+[GEN]    Cliente 655 llega  | cola=1
+[CAJERO 8] Atiende cliente 655 | espera=0ms | cajas=1
+[GEN]    Cliente 656 llega  | cola=1
+[CAJERO 8] Atiende cliente 656 | espera=0ms | cajas=1
+[GEN]    Cliente 657 llega  | cola=1
+[CAJERO 8] Atiende cliente 657 | espera=0ms | cajas=1
+[GEN]    Cliente 658 llega  | cola=1
+[CAJERO 8] Atiende cliente 658 | espera=0ms | cajas=1
+[GEN]    Cliente 659 llega  | cola=1
+[GEN]    Cliente 660 llega  | cola=1
+[CAJERO 8] Atiende cliente 659 | espera=0ms | cajas=1
+[GEN]    Cliente 661 llega  | cola=2
+[CAJERO 8] Atiende cliente 660 | espera=1ms | cajas=1
+[GEN]    Cliente 662 llega  | cola=2
+[CAJERO 8] Atiende cliente 661 | espera=0ms | cajas=1
+[GEN]    Cliente 663 llega  | cola=2
+[CAJERO 8] Atiende cliente 662 | espera=0ms | cajas=1
+[GEN]    Cliente 664 llega  | cola=2
+[CAJERO 8] Atiende cliente 663 | espera=0ms | cajas=1
+[GEN]    Cliente 665 llega  | cola=2
+[CAJERO 8] Atiende cliente 664 | espera=0ms | cajas=1
+[GEN]    Cliente 666 llega  | cola=2
+[CAJERO 8] Atiende cliente 665 | espera=0ms | cajas=1
+[GEN]    Cliente 667 llega  | cola=2
+[CAJERO 8] Atiende cliente 666 | espera=0ms | cajas=1
+[GEN]    Cliente 668 llega  | cola=2
+[CAJERO 8] Atiende cliente 667 | espera=0ms | cajas=1
+[CAJERO 8] Atiende cliente 668 | espera=0ms | cajas=1
+[GEN]    Cliente 669 llega  | cola=1
+[CAJERO 8] Atiende cliente 669 | espera=1ms | cajas=1
+[GEN]    Cliente 670 llega  | cola=1
+[GEN]    Cliente 671 llega  | cola=2
+[CAJERO 5] Atiende cliente 670 | espera=0ms | cajas=2
+[CAJERO 8] Atiende cliente 671 | espera=0ms | cajas=2
+[GEN]    Cliente 672 llega  | cola=1
+[CAJERO 5] Atiende cliente 672 | espera=0ms | cajas=2
+[GEN]    Cliente 673 llega  | cola=1
+[CAJERO 5] Atiende cliente 673 | espera=0ms | cajas=1
+[GEN]    Cliente 674 llega  | cola=1
+[CAJERO 5] Atiende cliente 674 | espera=0ms | cajas=1
+[GEN]    Cliente 675 llega  | cola=1
+[CAJERO 5] Atiende cliente 675 | espera=0ms | cajas=1
+[GEN]    Cliente 676 llega  | cola=1
+[CAJERO 5] Atiende cliente 676 | espera=0ms | cajas=1
+[GEN]    Cliente 677 llega  | cola=1
+[CAJERO 5] Atiende cliente 677 | espera=0ms | cajas=1
+[GEN]    Cliente 678 llega  | cola=1
+[CAJERO 5] Atiende cliente 678 | espera=0ms | cajas=1
+[GEN]    Cliente 679 llega  | cola=1
+[CAJERO 5] Atiende cliente 679 | espera=0ms | cajas=1
+[GEN]    Cliente 680 llega  | cola=1
+[CAJERO 5] Atiende cliente 680 | espera=0ms | cajas=1
+[GEN]    Cliente 681 llega  | cola=1
+[CAJERO 5] Atiende cliente 681 | espera=0ms | cajas=1
+[GEN]    Cliente 682 llega  | cola=1
+[CAJERO 5] Atiende cliente 682 | espera=0ms | cajas=1
+[GEN]    Cliente 683 llega  | cola=1
+[CAJERO 5] Atiende cliente 683 | espera=0ms | cajas=1
+[GEN]    Cliente 684 llega  | cola=1
+[CAJERO 5] Atiende cliente 684 | espera=0ms | cajas=1
+[GEN]    Cliente 685 llega  | cola=1
+[CAJERO 5] Atiende cliente 685 | espera=0ms | cajas=1
+[GEN]    Cliente 686 llega  | cola=1
+[CAJERO 5] Atiende cliente 686 | espera=0ms | cajas=1
+[GEN]    Cliente 687 llega  | cola=1
+[CAJERO 5] Atiende cliente 687 | espera=0ms | cajas=1
+[GEN]    Cliente 688 llega  | cola=1
+[CAJERO 5] Atiende cliente 688 | espera=0ms | cajas=1
+[GEN]    Cliente 689 llega  | cola=1
+[CAJERO 5] Atiende cliente 689 | espera=0ms | cajas=1
+[GEN]    Cliente 690 llega  | cola=1
+[CAJERO 5] Atiende cliente 690 | espera=0ms | cajas=1
+[GEN]    Cliente 691 llega  | cola=1
+[CAJERO 5] Atiende cliente 691 | espera=0ms | cajas=1
+[GEN]    Cliente 692 llega  | cola=1
+[CAJERO 5] Atiende cliente 692 | espera=0ms | cajas=1
+[GEN]    Cliente 693 llega  | cola=1
+[CAJERO 5] Atiende cliente 693 | espera=0ms | cajas=1
+[GEN]    Cliente 694 llega  | cola=1
+[CAJERO 5] Atiende cliente 694 | espera=0ms | cajas=1
+[GEN]    Cliente 695 llega  | cola=1
+[CAJERO 5] Atiende cliente 695 | espera=0ms | cajas=1
+[GEN]    Cliente 696 llega  | cola=1
+[CAJERO 5] Atiende cliente 696 | espera=0ms | cajas=1
+[GEN]    Cliente 697 llega  | cola=1
+[CAJERO 5] Atiende cliente 697 | espera=0ms | cajas=1
+[GEN]    Cliente 698 llega  | cola=1
+[CAJERO 5] Atiende cliente 698 | espera=0ms | cajas=1
+[GEN]    Cliente 699 llega  | cola=1
+[CAJERO 5] Atiende cliente 699 | espera=0ms | cajas=1
+[GEN]    Cliente 700 llega  | cola=1
+[CAJERO 5] Atiende cliente 700 | espera=0ms | cajas=1
+[GEN]    Cliente 701 llega  | cola=1
+[CAJERO 5] Atiende cliente 701 | espera=0ms | cajas=1
+[GEN]    Cliente 702 llega  | cola=1
+[CAJERO 5] Atiende cliente 702 | espera=0ms | cajas=1
+[GEN]    Cliente 703 llega  | cola=1
+[CAJERO 5] Atiende cliente 703 | espera=0ms | cajas=1
+[GEN]    Cliente 704 llega  | cola=1
+[CAJERO 5] Atiende cliente 704 | espera=0ms | cajas=1
+[GEN]    Cliente 705 llega  | cola=1
+[CAJERO 5] Atiende cliente 705 | espera=0ms | cajas=1
+[GEN]    Cliente 706 llega  | cola=1
+[CAJERO 5] Atiende cliente 706 | espera=0ms | cajas=1
+[GEN]    Cliente 707 llega  | cola=1
+[CAJERO 5] Atiende cliente 707 | espera=0ms | cajas=1
+[GEN]    Cliente 708 llega  | cola=1
+[CAJERO 5] Atiende cliente 708 | espera=0ms | cajas=1
+[GEN]    Cliente 709 llega  | cola=1
+[CAJERO 5] Atiende cliente 709 | espera=0ms | cajas=1
+[GEN]    Cliente 710 llega  | cola=1
+[CAJERO 5] Atiende cliente 710 | espera=0ms | cajas=1
+[GEN]    Cliente 711 llega  | cola=1
+[CAJERO 5] Atiende cliente 711 | espera=0ms | cajas=1
+[GEN]    Cliente 712 llega  | cola=1
+[CAJERO 5] Atiende cliente 712 | espera=0ms | cajas=1
+[GEN]    Cliente 713 llega  | cola=1
+[CAJERO 5] Atiende cliente 713 | espera=0ms | cajas=1
+[GEN]    Cliente 714 llega  | cola=1
+[CAJERO 5] Atiende cliente 714 | espera=1ms | cajas=1
+[GEN]    Cliente 715 llega  | cola=1
+[CAJERO 5] Atiende cliente 715 | espera=0ms | cajas=1
+[GEN]    Cliente 716 llega  | cola=1
+[CAJERO 5] Atiende cliente 716 | espera=0ms | cajas=1
+[GEN]    Cliente 717 llega  | cola=1
+[CAJERO 5] Atiende cliente 717 | espera=0ms | cajas=1
+[GEN]    Cliente 718 llega  | cola=1
+[CAJERO 5] Atiende cliente 718 | espera=0ms | cajas=1
+[GEN]    Cliente 719 llega  | cola=1
+[CAJERO 5] Atiende cliente 719 | espera=0ms | cajas=1
+[GEN]    Cliente 720 llega  | cola=1
+[CAJERO 5] Atiende cliente 720 | espera=0ms | cajas=1
+[GEN]    Cliente 721 llega  | cola=1
+[CAJERO 5] Atiende cliente 721 | espera=0ms | cajas=1
+[GEN]    Cliente 722 llega  | cola=1
+[CAJERO 5] Atiende cliente 722 | espera=0ms | cajas=1
+[GEN]    Cliente 723 llega  | cola=1
+[CAJERO 5] Atiende cliente 723 | espera=0ms | cajas=1
+[GEN]    Cliente 724 llega  | cola=1
+[CAJERO 5] Atiende cliente 724 | espera=0ms | cajas=1
+[GEN]    Cliente 725 llega  | cola=1
+[CAJERO 5] Atiende cliente 725 | espera=0ms | cajas=1
+[GEN]    Cliente 726 llega  | cola=1
+[CAJERO 5] Atiende cliente 726 | espera=0ms | cajas=1
+[GEN]    Cliente 727 llega  | cola=1
+[CAJERO 5] Atiende cliente 727 | espera=0ms | cajas=1
+[GEN]    Cliente 728 llega  | cola=1
+[CAJERO 5] Atiende cliente 728 | espera=0ms | cajas=1
+[GEN]    Cliente 729 llega  | cola=1
+[CAJERO 5] Atiende cliente 729 | espera=0ms | cajas=1
+[GEN]    Cliente 730 llega  | cola=1
+[CAJERO 5] Atiende cliente 730 | espera=1ms | cajas=1
+[GEN]    Cliente 731 llega  | cola=1
+[CAJERO 5] Atiende cliente 731 | espera=0ms | cajas=1
+[GEN]    Cliente 732 llega  | cola=1
+[CAJERO 5] Atiende cliente 732 | espera=0ms | cajas=1
+[GEN]    Cliente 733 llega  | cola=1
+[CAJERO 5] Atiende cliente 733 | espera=0ms | cajas=1
+[GEN]    Cliente 734 llega  | cola=1
+[CAJERO 5] Atiende cliente 734 | espera=0ms | cajas=1
+[GEN]    Cliente 735 llega  | cola=1
+[CAJERO 5] Atiende cliente 735 | espera=0ms | cajas=1
+[GEN]    Cliente 736 llega  | cola=1
+[CAJERO 5] Atiende cliente 736 | espera=0ms | cajas=1
+[GEN]    Cliente 737 llega  | cola=1
+[CAJERO 5] Atiende cliente 737 | espera=0ms | cajas=1
+[GEN]    Cliente 738 llega  | cola=1
+[CAJERO 5] Atiende cliente 738 | espera=0ms | cajas=1
+[GEN]    Cliente 739 llega  | cola=1
+[CAJERO 5] Atiende cliente 739 | espera=1ms | cajas=1
+[GEN]    Cliente 740 llega  | cola=1
+[CAJERO 5] Atiende cliente 740 | espera=0ms | cajas=1
+[GEN]    Cliente 741 llega  | cola=1
+[CAJERO 5] Atiende cliente 741 | espera=0ms | cajas=1
+[GEN]    Cliente 742 llega  | cola=1
+[CAJERO 5] Atiende cliente 742 | espera=0ms | cajas=1
+[GEN]    Cliente 743 llega  | cola=1
+[CAJERO 5] Atiende cliente 743 | espera=0ms | cajas=1
+[GEN]    Cliente 744 llega  | cola=1
+[CAJERO 8] Atiende cliente 744 | espera=0ms | cajas=2
+[GEN]    Cliente 745 llega  | cola=1
+[CAJERO 8] Atiende cliente 745 | espera=0ms | cajas=1
+[GEN]    Cliente 746 llega  | cola=1
+[CAJERO 8] Atiende cliente 746 | espera=0ms | cajas=1
+[GEN]    Cliente 747 llega  | cola=1
+[CAJERO 8] Atiende cliente 747 | espera=0ms | cajas=1
+[GEN]    Cliente 748 llega  | cola=1
+[CAJERO 8] Atiende cliente 748 | espera=1ms | cajas=1
+[GEN]    Cliente 749 llega  | cola=1
+[CAJERO 8] Atiende cliente 749 | espera=0ms | cajas=1
+[GEN]    Cliente 750 llega  | cola=1
+[CAJERO 8] Atiende cliente 750 | espera=0ms | cajas=1
+[GEN]    Cliente 751 llega  | cola=1
+[GEN]    Cliente 752 llega  | cola=1
+[CAJERO 8] Atiende cliente 751 | espera=0ms | cajas=1
+[GEN]    Cliente 753 llega  | cola=2
+[CAJERO 8] Atiende cliente 752 | espera=0ms | cajas=1
+[GEN]    Cliente 754 llega  | cola=2
+[CAJERO 8] Atiende cliente 753 | espera=0ms | cajas=1
+[GEN]    Cliente 755 llega  | cola=2
+[CAJERO 8] Atiende cliente 754 | espera=0ms | cajas=1
+[GEN]    Cliente 756 llega  | cola=2
+[CAJERO 8] Atiende cliente 755 | espera=0ms | cajas=1
+[GEN]    Cliente 757 llega  | cola=2
+[CAJERO 8] Atiende cliente 756 | espera=0ms | cajas=1
+[GEN]    Cliente 758 llega  | cola=2
+[CAJERO 8] Atiende cliente 757 | espera=1ms | cajas=1
+[GEN]    Cliente 759 llega  | cola=2
+[CAJERO 8] Atiende cliente 758 | espera=0ms | cajas=1
+[CAJERO 8] Atiende cliente 759 | espera=0ms | cajas=1
+[GEN]    Cliente 760 llega  | cola=1
+[CAJERO 8] Atiende cliente 760 | espera=0ms | cajas=1
+[GEN]    Cliente 761 llega  | cola=1
+[GEN]    Cliente 762 llega  | cola=2
+[GEN]    Cliente 763 llega  | cola=3
+[GEN]    Cliente 764 llega  | cola=4
+[GEN]    Cliente 765 llega  | cola=5
+[GEN]    Cliente 766 llega  | cola=6
+[GEN]    Cliente 767 llega  | cola=7
+[GEN]    Cliente 768 llega  | cola=8
+[GEN]    Cliente 769 llega  | cola=9
+[GEN]    Cliente 770 llega  | cola=10
+[GEN]    Cliente 771 llega  | cola=11
+[GEN]    Cliente 772 llega  | cola=12
+[GEN]    Cliente 773 llega  | cola=13
+[GEN]    Cliente 774 llega  | cola=14
+[GEN]    Cliente 775 llega  | cola=15
+[GEN]    Cliente 776 llega  | cola=16
+[GEN]    Cliente 777 llega  | cola=17
+[GEN]    Cliente 778 llega  | cola=18
+[GEN]    Cliente 779 llega  | cola=19
+[GEN]    Cliente 780 llega  | cola=20
+[GEN]    Cliente 781 llega  | cola=21
+[GEN]    Cliente 782 llega  | cola=22
+[GEN]    Cliente 783 llega  | cola=23
+[GEN]    Cliente 784 llega  | cola=24
+[GEN]    Cliente 785 llega  | cola=25
+[GEN]    Cliente 786 llega  | cola=26
+[GEN]    Cliente 787 llega  | cola=27
+[GEN]    Cliente 788 llega  | cola=28
+[GEN]    Cliente 789 llega  | cola=29
+[GEN]    Cliente 790 llega  | cola=30
+[GEN]    Cliente 791 llega  | cola=31
+[GEN]    Cliente 792 llega  | cola=32
+[GEN]    Cliente 793 llega  | cola=33
+[GEN]    Cliente 794 llega  | cola=34
+[GEN]    Cliente 795 llega  | cola=35
+[GEN]    Cliente 796 llega  | cola=36
+[GEN]    Cliente 797 llega  | cola=37
+[GEN]    Cliente 798 llega  | cola=38
+[GEN]    Cliente 799 llega  | cola=39
+[GEN]    Cliente 800 llega  | cola=40
+[GEN]    Cliente 801 llega  | cola=41
+[GEN]    Cliente 802 llega  | cola=42
+[GEN]    Cliente 803 llega  | cola=43
+[GEN]    Cliente 804 llega  | cola=44
+[GEN]    Cliente 805 llega  | cola=45
+[GEN]    Cliente 806 llega  | cola=46
+[GEN]    Cliente 807 llega  | cola=47
+[GEN]    Cliente 808 llega  | cola=48
+[GEN]    Cliente 809 llega  | cola=49
+[CAJERO 1] Atiende cliente 761 | espera=5ms | cajas=1
+[CAJERO 9] Atiende cliente 762 | espera=5ms | cajas=2
+[CAJERO 2] Atiende cliente 763 | espera=5ms | cajas=3
+[CAJERO 4] Atiende cliente 764 | espera=5ms | cajas=4
+[CAJERO 3] Atiende cliente 765 | espera=4ms | cajas=5
+[GEN]    Cliente 810 llega  | cola=45
+[CAJERO 10] Atiende cliente 766 | espera=4ms | cajas=6
+[CAJERO 6] Atiende cliente 767 | espera=4ms | cajas=7
+[CAJERO 7] Atiende cliente 768 | espera=4ms | cajas=8
+[CAJERO 1] Atiende cliente 769 | espera=4ms | cajas=8
+[CAJERO 2] Atiende cliente 770 | espera=4ms | cajas=8
+[CAJERO 9] Atiende cliente 771 | espera=5ms | cajas=8
+[CAJERO 4] Atiende cliente 772 | espera=5ms | cajas=8
+[CAJERO 3] Atiende cliente 773 | espera=5ms | cajas=8
+[GEN]    Cliente 811 llega  | cola=38
+[CAJERO 10] Atiende cliente 774 | espera=5ms | cajas=8
+[CAJERO 6] Atiende cliente 775 | espera=4ms | cajas=8
+[CAJERO 7] Atiende cliente 776 | espera=4ms | cajas=8
+[CAJERO 1] Atiende cliente 777 | espera=4ms | cajas=8
+[CAJERO 2] Atiende cliente 778 | espera=4ms | cajas=7
+[CAJERO 9] Atiende cliente 779 | espera=4ms | cajas=8
+[CAJERO 4] Atiende cliente 780 | espera=4ms | cajas=8
+[CAJERO 3] Atiende cliente 781 | espera=4ms | cajas=8
+[GEN]    Cliente 812 llega  | cola=31
+[CAJERO 10] Atiende cliente 782 | espera=4ms | cajas=8
+[CAJERO 6] Atiende cliente 783 | espera=4ms | cajas=8
+[CAJERO 7] Atiende cliente 784 | espera=4ms | cajas=7
+[CAJERO 1] Atiende cliente 785 | espera=3ms | cajas=8
+[CAJERO 2] Atiende cliente 786 | espera=3ms | cajas=8
+[CAJERO 9] Atiende cliente 787 | espera=3ms | cajas=8
+[CAJERO 4] Atiende cliente 788 | espera=3ms | cajas=8
+[CAJERO 3] Atiende cliente 789 | espera=3ms | cajas=8
+[GEN]    Cliente 813 llega  | cola=24
+[CAJERO 10] Atiende cliente 790 | espera=3ms | cajas=8
+[CAJERO 6] Atiende cliente 791 | espera=3ms | cajas=8
+[CAJERO 7] Atiende cliente 792 | espera=3ms | cajas=8
+[CAJERO 1] Atiende cliente 793 | espera=4ms | cajas=8
+[CAJERO 9] Atiende cliente 794 | espera=4ms | cajas=8
+[CAJERO 2] Atiende cliente 795 | espera=3ms | cajas=8
+[CAJERO 4] Atiende cliente 796 | espera=3ms | cajas=8
+[GEN]    Cliente 814 llega  | cola=17
+[CAJERO 10] Atiende cliente 798 | espera=3ms | cajas=8
+[CAJERO 6] Atiende cliente 799 | espera=3ms | cajas=8
+[CAJERO 7] Atiende cliente 800 | espera=3ms | cajas=8
+[CAJERO 1] Atiende cliente 801 | espera=3ms | cajas=8
+[CAJERO 2] Atiende cliente 802 | espera=3ms | cajas=8
+[CAJERO 9] Atiende cliente 803 | espera=3ms | cajas=8
+[CAJERO 3] Atiende cliente 797 | espera=3ms | cajas=8
+[GEN]    Cliente 815 llega  | cola=12
+[CAJERO 4] Atiende cliente 804 | espera=3ms | cajas=8
+[CAJERO 10] Atiende cliente 805 | espera=2ms | cajas=8
+[CAJERO 6] Atiende cliente 806 | espera=2ms | cajas=8
+[CAJERO 7] Atiende cliente 807 | espera=2ms | cajas=8
+[CAJERO 1] Atiende cliente 808 | espera=2ms | cajas=8
+[CAJERO 2] Atiende cliente 809 | espera=2ms | cajas=8
+[CAJERO 9] Atiende cliente 810 | espera=2ms | cajas=8
+[CAJERO 3] Atiende cliente 811 | espera=1ms | cajas=8
+[GEN]    Cliente 816 llega  | cola=5
+[GEN]    Cliente 817 llega  | cola=6
+[CAJERO 4] Atiende cliente 812 | espera=2ms | cajas=8
+[CAJERO 10] Atiende cliente 813 | espera=2ms | cajas=8
+[CAJERO 6] Atiende cliente 814 | espera=1ms | cajas=8
+[CAJERO 7] Atiende cliente 815 | espera=1ms | cajas=8
+[CAJERO 1] Atiende cliente 816 | espera=1ms | cajas=8
+[CAJERO 2] Atiende cliente 817 | espera=0ms | cajas=8
+[GEN]    Cliente 818 llega  | cola=1
+[CAJERO 3] Atiende cliente 818 | espera=0ms | cajas=7
+[GEN]    Cliente 819 llega  | cola=1
+[CAJERO 3] Atiende cliente 819 | espera=0ms | cajas=1
+[GEN]    Cliente 820 llega  | cola=1
+[CAJERO 3] Atiende cliente 820 | espera=0ms | cajas=1
+[GEN]    Cliente 821 llega  | cola=1
+[CAJERO 5] Atiende cliente 821 | espera=0ms | cajas=2
+[GEN]    Cliente 822 llega  | cola=1
+[CAJERO 5] Atiende cliente 822 | espera=0ms | cajas=1
+[GEN]    Cliente 823 llega  | cola=1
+[CAJERO 5] Atiende cliente 823 | espera=0ms | cajas=1
+[GEN]    Cliente 824 llega  | cola=1
+[CAJERO 5] Atiende cliente 824 | espera=0ms | cajas=1
+[GEN]    Cliente 825 llega  | cola=1
+[CAJERO 5] Atiende cliente 825 | espera=0ms | cajas=1
+[GEN]    Cliente 826 llega  | cola=1
+[CAJERO 5] Atiende cliente 826 | espera=0ms | cajas=1
+[GEN]    Cliente 827 llega  | cola=1
+[CAJERO 5] Atiende cliente 827 | espera=0ms | cajas=1
+[GEN]    Cliente 828 llega  | cola=1
+[CAJERO 5] Atiende cliente 828 | espera=0ms | cajas=1
+[GEN]    Cliente 829 llega  | cola=1
+[CAJERO 5] Atiende cliente 829 | espera=0ms | cajas=1
+[GEN]    Cliente 830 llega  | cola=1
+[CAJERO 5] Atiende cliente 830 | espera=0ms | cajas=1
+[GEN]    Cliente 831 llega  | cola=1
+[CAJERO 5] Atiende cliente 831 | espera=0ms | cajas=1
+[GEN]    Cliente 832 llega  | cola=1
+[CAJERO 5] Atiende cliente 832 | espera=0ms | cajas=1
+[GEN]    Cliente 833 llega  | cola=1
+[CAJERO 5] Atiende cliente 833 | espera=0ms | cajas=1
+[GEN]    Cliente 834 llega  | cola=1
+[CAJERO 5] Atiende cliente 834 | espera=0ms | cajas=1
+[GEN]    Cliente 835 llega  | cola=1
+[CAJERO 5] Atiende cliente 835 | espera=0ms | cajas=1
+[GEN]    Cliente 836 llega  | cola=1
+[CAJERO 5] Atiende cliente 836 | espera=0ms | cajas=1
+[GEN]    Cliente 837 llega  | cola=1
+[CAJERO 5] Atiende cliente 837 | espera=0ms | cajas=1
+[GEN]    Cliente 838 llega  | cola=1
+[CAJERO 5] Atiende cliente 838 | espera=0ms | cajas=1
+[GEN]    Cliente 839 llega  | cola=1
+[CAJERO 5] Atiende cliente 839 | espera=0ms | cajas=1
+[GEN]    Cliente 840 llega  | cola=1
+[CAJERO 5] Atiende cliente 840 | espera=0ms | cajas=1
+[GEN]    Cliente 841 llega  | cola=1
+[CAJERO 5] Atiende cliente 841 | espera=0ms | cajas=1
+[GEN]    Cliente 842 llega  | cola=1
+[CAJERO 5] Atiende cliente 842 | espera=0ms | cajas=1
+[GEN]    Cliente 843 llega  | cola=1
+[CAJERO 5] Atiende cliente 843 | espera=0ms | cajas=1
+[GEN]    Cliente 844 llega  | cola=1
+[CAJERO 5] Atiende cliente 844 | espera=0ms | cajas=1
+[GEN]    Cliente 845 llega  | cola=1
+[CAJERO 5] Atiende cliente 845 | espera=0ms | cajas=1
+[GEN]    Cliente 846 llega  | cola=1
+[CAJERO 5] Atiende cliente 846 | espera=0ms | cajas=1
+[GEN]    Cliente 847 llega  | cola=1
+[CAJERO 5] Atiende cliente 847 | espera=0ms | cajas=1
+[GEN]    Cliente 848 llega  | cola=1
+[CAJERO 5] Atiende cliente 848 | espera=0ms | cajas=1
+[GEN]    Cliente 849 llega  | cola=1
+[GEN]    Cliente 850 llega  | cola=2
+[GEN]    Cliente 851 llega  | cola=3
+[GEN]    Cliente 852 llega  | cola=4
+[GEN]    Cliente 853 llega  | cola=5
+[GEN]    Cliente 854 llega  | cola=6
+[GEN]    Cliente 855 llega  | cola=7
+[GEN]    Cliente 856 llega  | cola=8
+[GEN]    Cliente 857 llega  | cola=9
+[GEN]    Cliente 858 llega  | cola=10
+[GEN]    Cliente 859 llega  | cola=11
+[GEN]    Cliente 860 llega  | cola=12
+[GEN]    Cliente 861 llega  | cola=13
+[GEN]    Cliente 862 llega  | cola=14
+[GEN]    Cliente 863 llega  | cola=15
+[GEN]    Cliente 864 llega  | cola=16
+[GEN]    Cliente 865 llega  | cola=17
+[GEN]    Cliente 866 llega  | cola=18
+[GEN]    Cliente 867 llega  | cola=19
+[GEN]    Cliente 868 llega  | cola=20
+[GEN]    Cliente 869 llega  | cola=21
+[GEN]    Cliente 870 llega  | cola=22
+[GEN]    Cliente 871 llega  | cola=23
+[GEN]    Cliente 872 llega  | cola=24
+[GEN]    Cliente 873 llega  | cola=25
+[GEN]    Cliente 874 llega  | cola=26
+[GEN]    Cliente 875 llega  | cola=27
+[GEN]    Cliente 876 llega  | cola=28
+[GEN]    Cliente 877 llega  | cola=29
+[GEN]    Cliente 878 llega  | cola=30
+[GEN]    Cliente 879 llega  | cola=31
+[GEN]    Cliente 880 llega  | cola=32
+[GEN]    Cliente 881 llega  | cola=33
+[GEN]    Cliente 882 llega  | cola=34
+[GEN]    Cliente 883 llega  | cola=35
+[GEN]    Cliente 884 llega  | cola=36
+[GEN]    Cliente 885 llega  | cola=37
+[GEN]    Cliente 886 llega  | cola=38
+[GEN]    Cliente 887 llega  | cola=39
+[GEN]    Cliente 888 llega  | cola=40
+[GEN]    Cliente 889 llega  | cola=41
+[GEN]    Cliente 890 llega  | cola=42
+[GEN]    Cliente 891 llega  | cola=43
+[GEN]    Cliente 892 llega  | cola=44
+[GEN]    Cliente 893 llega  | cola=45
+[GEN]    Cliente 894 llega  | cola=46
+[GEN]    Cliente 895 llega  | cola=47
+[GEN]    Cliente 896 llega  | cola=48
+[GEN]    Cliente 897 llega  | cola=49
+[GEN]    Cliente 898 llega  | cola=50
+[GEN]    Cliente 899 llega  | cola=51
+[CAJERO 9] Atiende cliente 849 | espera=5ms | cajas=1
+[GEN]    Cliente 900 llega  | cola=51
+[CAJERO 9] Atiende cliente 850 | espera=5ms | cajas=1
+[CAJERO 4] Atiende cliente 851 | espera=5ms | cajas=2
+[CAJERO 6] Atiende cliente 852 | espera=5ms | cajas=3
+[CAJERO 10] Atiende cliente 853 | espera=5ms | cajas=4
+[CAJERO 7] Atiende cliente 854 | espera=5ms | cajas=5
+[CAJERO 9] Atiende cliente 855 | espera=5ms | cajas=5
+[CAJERO 1] Atiende cliente 856 | espera=5ms | cajas=6
+[CAJERO 2] Atiende cliente 857 | espera=5ms | cajas=7
+[CAJERO 4] Atiende cliente 858 | espera=5ms | cajas=7
+[CAJERO 6] Atiende cliente 859 | espera=4ms | cajas=7
+[CAJERO 10] Atiende cliente 860 | espera=4ms | cajas=7
+[CAJERO 6] Atiende cliente 861 | espera=4ms | cajas=7
+[CAJERO 7] Atiende cliente 862 | espera=4ms | cajas=7
+[CAJERO 9] Atiende cliente 863 | espera=4ms | cajas=7
+[CAJERO 1] Atiende cliente 864 | espera=5ms | cajas=7
+[CAJERO 2] Atiende cliente 865 | espera=5ms | cajas=7
+[CAJERO 4] Atiende cliente 866 | espera=5ms | cajas=7
+[CAJERO 3] Atiende cliente 867 | espera=5ms | cajas=8
+[CAJERO 10] Atiende cliente 868 | espera=5ms | cajas=8
+[CAJERO 6] Atiende cliente 869 | espera=4ms | cajas=8
+[CAJERO 7] Atiende cliente 870 | espera=4ms | cajas=8
+[CAJERO 9] Atiende cliente 871 | espera=4ms | cajas=8
+[CAJERO 1] Atiende cliente 872 | espera=4ms | cajas=8
+[CAJERO 2] Atiende cliente 873 | espera=4ms | cajas=8
+[CAJERO 4] Atiende cliente 874 | espera=4ms | cajas=8
+[CAJERO 3] Atiende cliente 875 | espera=4ms | cajas=8
+[CAJERO 10] Atiende cliente 876 | espera=4ms | cajas=8
+[CAJERO 6] Atiende cliente 877 | espera=4ms | cajas=8
+[CAJERO 7] Atiende cliente 878 | espera=4ms | cajas=8
+[CAJERO 9] Atiende cliente 879 | espera=3ms | cajas=8
+[CAJERO 1] Atiende cliente 880 | espera=3ms | cajas=8
+[CAJERO 2] Atiende cliente 881 | espera=3ms | cajas=8
+[CAJERO 4] Atiende cliente 882 | espera=3ms | cajas=8
+[CAJERO 3] Atiende cliente 883 | espera=3ms | cajas=8
+[CAJERO 10] Atiende cliente 884 | espera=3ms | cajas=8
+[CAJERO 6] Atiende cliente 885 | espera=3ms | cajas=7
+[CAJERO 9] Atiende cliente 886 | espera=3ms | cajas=8
+[CAJERO 7] Atiende cliente 887 | espera=3ms | cajas=8
+[CAJERO 1] Atiende cliente 888 | espera=2ms | cajas=8
+[CAJERO 3] Atiende cliente 890 | espera=2ms | cajas=8
+[CAJERO 2] Atiende cliente 891 | espera=2ms | cajas=8
+[CAJERO 10] Atiende cliente 892 | espera=3ms | cajas=8
+[CAJERO 9] Atiende cliente 893 | espera=3ms | cajas=8
+[GEN]    Cliente 901 llega  | cola=8
+[CAJERO 6] Atiende cliente 894 | espera=3ms | cajas=8
+[CAJERO 7] Atiende cliente 895 | espera=3ms | cajas=8
+[CAJERO 4] Atiende cliente 889 | espera=2ms | cajas=8
+[CAJERO 4] Atiende cliente 896 | espera=3ms | cajas=8
+[CAJERO 3] Atiende cliente 897 | espera=3ms | cajas=8
+[CAJERO 10] Atiende cliente 898 | espera=2ms | cajas=7
+[CAJERO 1] Atiende cliente 899 | espera=2ms | cajas=8
+[CAJERO 2] Atiende cliente 900 | espera=2ms | cajas=8
+[CAJERO 9] Atiende cliente 901 | espera=0ms | cajas=8
+[GEN]    Cliente 902 llega  | cola=1
+[CAJERO 6] Atiende cliente 902 | espera=0ms | cajas=8
+[GEN]    Cliente 903 llega  | cola=1
+[CAJERO 6] Atiende cliente 903 | espera=0ms | cajas=1
+[GEN]    Cliente 904 llega  | cola=1
+[CAJERO 6] Atiende cliente 904 | espera=0ms | cajas=1
+[GEN]    Cliente 905 llega  | cola=1
+[CAJERO 6] Atiende cliente 905 | espera=0ms | cajas=1
+[GEN]    Cliente 906 llega  | cola=1
+[CAJERO 6] Atiende cliente 906 | espera=0ms | cajas=1
+[GEN]    Cliente 907 llega  | cola=1
+[CAJERO 6] Atiende cliente 907 | espera=0ms | cajas=1
+[GEN]    Cliente 908 llega  | cola=1
+[CAJERO 6] Atiende cliente 908 | espera=0ms | cajas=1
+[GEN]    Cliente 909 llega  | cola=1
+[CAJERO 6] Atiende cliente 909 | espera=0ms | cajas=1
+[GEN]    Cliente 910 llega  | cola=1
+[CAJERO 6] Atiende cliente 910 | espera=0ms | cajas=1
+[GEN]    Cliente 911 llega  | cola=1
+[CAJERO 6] Atiende cliente 911 | espera=0ms | cajas=1
+[GEN]    Cliente 912 llega  | cola=1
+[CAJERO 6] Atiende cliente 912 | espera=0ms | cajas=1
+[GEN]    Cliente 913 llega  | cola=1
+[CAJERO 6] Atiende cliente 913 | espera=0ms | cajas=1
+[GEN]    Cliente 914 llega  | cola=1
+[CAJERO 6] Atiende cliente 914 | espera=0ms | cajas=1
+[GEN]    Cliente 915 llega  | cola=1
+[GEN]    Cliente 916 llega  | cola=2
+[CAJERO 6] Atiende cliente 915 | espera=0ms | cajas=1
+[GEN]    Cliente 917 llega  | cola=2
+[CAJERO 6] Atiende cliente 916 | espera=0ms | cajas=1
+[GEN]    Cliente 918 llega  | cola=2
+[CAJERO 6] Atiende cliente 917 | espera=0ms | cajas=1
+[GEN]    Cliente 919 llega  | cola=2
+[CAJERO 6] Atiende cliente 918 | espera=0ms | cajas=1
+[GEN]    Cliente 920 llega  | cola=2
+[CAJERO 6] Atiende cliente 919 | espera=0ms | cajas=1
+[GEN]    Cliente 921 llega  | cola=2
+[CAJERO 6] Atiende cliente 920 | espera=0ms | cajas=1
+[GEN]    Cliente 922 llega  | cola=2
+[CAJERO 6] Atiende cliente 921 | espera=0ms | cajas=1
+[CAJERO 5] Atiende cliente 922 | espera=1ms | cajas=2
+[GEN]    Cliente 923 llega  | cola=1
+[CAJERO 5] Atiende cliente 923 | espera=0ms | cajas=1
+[GEN]    Cliente 924 llega  | cola=1
+[CAJERO 5] Atiende cliente 924 | espera=0ms | cajas=1
+[GEN]    Cliente 925 llega  | cola=1
+[CAJERO 5] Atiende cliente 925 | espera=0ms | cajas=1
+[GEN]    Cliente 926 llega  | cola=1
+[CAJERO 5] Atiende cliente 926 | espera=0ms | cajas=1
+[GEN]    Cliente 927 llega  | cola=1
+[CAJERO 5] Atiende cliente 927 | espera=0ms | cajas=1
+[GEN]    Cliente 928 llega  | cola=1
+[CAJERO 5] Atiende cliente 928 | espera=0ms | cajas=1
+[GEN]    Cliente 929 llega  | cola=1
+[CAJERO 5] Atiende cliente 929 | espera=0ms | cajas=1
+[GEN]    Cliente 930 llega  | cola=1
+[CAJERO 5] Atiende cliente 930 | espera=0ms | cajas=1
+[GEN]    Cliente 931 llega  | cola=1
+[CAJERO 5] Atiende cliente 931 | espera=1ms | cajas=1
+[GEN]    Cliente 932 llega  | cola=1
+[CAJERO 5] Atiende cliente 932 | espera=0ms | cajas=1
+[GEN]    Cliente 933 llega  | cola=1
+[CAJERO 5] Atiende cliente 933 | espera=0ms | cajas=1
+[GEN]    Cliente 934 llega  | cola=1
+[CAJERO 5] Atiende cliente 934 | espera=0ms | cajas=1
+[GEN]    Cliente 935 llega  | cola=1
+[CAJERO 5] Atiende cliente 935 | espera=0ms | cajas=1
+[GEN]    Cliente 936 llega  | cola=1
+[CAJERO 5] Atiende cliente 936 | espera=0ms | cajas=1
+[GEN]    Cliente 937 llega  | cola=1
+[CAJERO 5] Atiende cliente 937 | espera=0ms | cajas=1
+[GEN]    Cliente 938 llega  | cola=1
+[CAJERO 5] Atiende cliente 938 | espera=0ms | cajas=1
+[GEN]    Cliente 939 llega  | cola=1
+[CAJERO 5] Atiende cliente 939 | espera=0ms | cajas=1
+[GEN]    Cliente 940 llega  | cola=1
+[CAJERO 5] Atiende cliente 940 | espera=1ms | cajas=1
+[GEN]    Cliente 941 llega  | cola=1
+[CAJERO 5] Atiende cliente 941 | espera=0ms | cajas=1
+[GEN]    Cliente 942 llega  | cola=1
+[CAJERO 5] Atiende cliente 942 | espera=0ms | cajas=1
+[GEN]    Cliente 943 llega  | cola=1
+[CAJERO 5] Atiende cliente 943 | espera=0ms | cajas=1
+[GEN]    Cliente 944 llega  | cola=1
+[CAJERO 5] Atiende cliente 944 | espera=0ms | cajas=1
+[GEN]    Cliente 945 llega  | cola=1
+[CAJERO 5] Atiende cliente 945 | espera=0ms | cajas=1
+[GEN]    Cliente 946 llega  | cola=1
+[CAJERO 5] Atiende cliente 946 | espera=0ms | cajas=1
+[GEN]    Cliente 947 llega  | cola=1
+[CAJERO 5] Atiende cliente 947 | espera=0ms | cajas=1
+[GEN]    Cliente 948 llega  | cola=1
+[CAJERO 5] Atiende cliente 948 | espera=0ms | cajas=1
+[GEN]    Cliente 949 llega  | cola=1
+[CAJERO 5] Atiende cliente 949 | espera=1ms | cajas=1
+[GEN]    Cliente 950 llega  | cola=1
+[CAJERO 5] Atiende cliente 950 | espera=0ms | cajas=1
+[GEN]    Cliente 951 llega  | cola=1
+[CAJERO 5] Atiende cliente 951 | espera=0ms | cajas=1
+[GEN]    Cliente 952 llega  | cola=1
+[CAJERO 5] Atiende cliente 952 | espera=0ms | cajas=1
+[GEN]    Cliente 953 llega  | cola=1
+[CAJERO 5] Atiende cliente 953 | espera=0ms | cajas=1
+[GEN]    Cliente 954 llega  | cola=1
+[CAJERO 5] Atiende cliente 954 | espera=0ms | cajas=1
+[GEN]    Cliente 955 llega  | cola=1
+[CAJERO 5] Atiende cliente 955 | espera=0ms | cajas=1
+[GEN]    Cliente 956 llega  | cola=1
+[CAJERO 5] Atiende cliente 956 | espera=0ms | cajas=1
+[GEN]    Cliente 957 llega  | cola=1
+[CAJERO 5] Atiende cliente 957 | espera=0ms | cajas=1
+[GEN]    Cliente 958 llega  | cola=1
+[CAJERO 5] Atiende cliente 958 | espera=0ms | cajas=1
+[GEN]    Cliente 959 llega  | cola=1
+[CAJERO 5] Atiende cliente 959 | espera=0ms | cajas=1
+[GEN]    Cliente 960 llega  | cola=1
+[CAJERO 5] Atiende cliente 960 | espera=0ms | cajas=1
+[GEN]    Cliente 961 llega  | cola=1
+[CAJERO 5] Atiende cliente 961 | espera=0ms | cajas=1
+[GEN]    Cliente 962 llega  | cola=1
+[CAJERO 5] Atiende cliente 962 | espera=1ms | cajas=1
+[GEN]    Cliente 963 llega  | cola=1
+[CAJERO 5] Atiende cliente 963 | espera=0ms | cajas=1
+[GEN]    Cliente 964 llega  | cola=1
+[CAJERO 5] Atiende cliente 964 | espera=0ms | cajas=1
+[GEN]    Cliente 965 llega  | cola=1
+[CAJERO 5] Atiende cliente 965 | espera=0ms | cajas=1
+[GEN]    Cliente 966 llega  | cola=1
+[CAJERO 5] Atiende cliente 966 | espera=0ms | cajas=1
+[GEN]    Cliente 967 llega  | cola=1
+[CAJERO 5] Atiende cliente 967 | espera=0ms | cajas=1
+[GEN]    Cliente 968 llega  | cola=1
+[CAJERO 5] Atiende cliente 968 | espera=0ms | cajas=1
+[GEN]    Cliente 969 llega  | cola=1
+[CAJERO 5] Atiende cliente 969 | espera=0ms | cajas=1
+[GEN]    Cliente 970 llega  | cola=1
+[CAJERO 5] Atiende cliente 970 | espera=0ms | cajas=1
+[GEN]    Cliente 971 llega  | cola=1
+[CAJERO 5] Atiende cliente 971 | espera=1ms | cajas=1
+[GEN]    Cliente 972 llega  | cola=1
+[CAJERO 5] Atiende cliente 972 | espera=0ms | cajas=1
+[GEN]    Cliente 973 llega  | cola=1
+[CAJERO 5] Atiende cliente 973 | espera=0ms | cajas=1
+[GEN]    Cliente 974 llega  | cola=1
+[CAJERO 5] Atiende cliente 974 | espera=0ms | cajas=1
+[GEN]    Cliente 975 llega  | cola=1
+[CAJERO 5] Atiende cliente 975 | espera=0ms | cajas=1
+[GEN]    Cliente 976 llega  | cola=1
+[CAJERO 5] Atiende cliente 976 | espera=0ms | cajas=1
+[GEN]    Cliente 977 llega  | cola=1
+[CAJERO 5] Atiende cliente 977 | espera=0ms | cajas=1
+[GEN]    Cliente 978 llega  | cola=1
+[CAJERO 5] Atiende cliente 978 | espera=0ms | cajas=1
+[GEN]    Cliente 979 llega  | cola=1
+[CAJERO 5] Atiende cliente 979 | espera=0ms | cajas=1
+[GEN]    Cliente 980 llega  | cola=1
+[CAJERO 5] Atiende cliente 980 | espera=1ms | cajas=1
+[GEN]    Cliente 981 llega  | cola=1
+[CAJERO 5] Atiende cliente 981 | espera=0ms | cajas=1
+[GEN]    Cliente 982 llega  | cola=1
+[CAJERO 5] Atiende cliente 982 | espera=0ms | cajas=1
+[GEN]    Cliente 983 llega  | cola=1
+[GEN]    Cliente 984 llega  | cola=2
+[CAJERO 5] Atiende cliente 983 | espera=0ms | cajas=1
+[GEN]    Cliente 985 llega  | cola=2
+[CAJERO 5] Atiende cliente 984 | espera=0ms | cajas=1
+[GEN]    Cliente 986 llega  | cola=2
+[CAJERO 5] Atiende cliente 985 | espera=0ms | cajas=1
+[CAJERO 7] Atiende cliente 986 | espera=0ms | cajas=2
+[GEN]    Cliente 987 llega  | cola=1
+[CAJERO 5] Atiende cliente 987 | espera=0ms | cajas=2
+[GEN]    Cliente 988 llega  | cola=1
+[CAJERO 5] Atiende cliente 988 | espera=0ms | cajas=1
+[GEN]    Cliente 989 llega  | cola=1
+[CAJERO 5] Atiende cliente 989 | espera=0ms | cajas=1
+[GEN]    Cliente 990 llega  | cola=1
+[CAJERO 5] Atiende cliente 990 | espera=0ms | cajas=1
+[GEN]    Cliente 991 llega  | cola=1
+[CAJERO 5] Atiende cliente 991 | espera=0ms | cajas=1
+[GEN]    Cliente 992 llega  | cola=1
+[CAJERO 5] Atiende cliente 992 | espera=0ms | cajas=1
+[GEN]    Cliente 993 llega  | cola=1
+[CAJERO 5] Atiende cliente 993 | espera=0ms | cajas=1
+[GEN]    Cliente 994 llega  | cola=1
+[CAJERO 5] Atiende cliente 994 | espera=0ms | cajas=1
+[GEN]    Cliente 995 llega  | cola=1
+[CAJERO 5] Atiende cliente 995 | espera=0ms | cajas=1
+[GEN]    Cliente 996 llega  | cola=1
+[CAJERO 5] Atiende cliente 996 | espera=0ms | cajas=1
+[GEN]    Cliente 997 llega  | cola=1
+[CAJERO 5] Atiende cliente 997 | espera=0ms | cajas=1
+[GEN]    Cliente 998 llega  | cola=1
+[CAJERO 5] Atiende cliente 998 | espera=0ms | cajas=1
+[GEN]    Cliente 999 llega  | cola=1
+[CAJERO 5] Atiende cliente 999 | espera=0ms | cajas=1
+[GEN]    Cliente 1000 llega  | cola=1
+[CAJERO 5] Atiende cliente 1000 | espera=0ms | cajas=1
+
+=== RESUMEN ===
+Clientes atendidos : 1000 / 1000
+Tiempo espera prom.: 1 ms
