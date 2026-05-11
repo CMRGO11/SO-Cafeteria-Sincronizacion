@@ -1,8 +1,0 @@
-=== MODO: CON sincronización (mutex) ===
-Hilos: 20 | Iter/hilo: 500000 | Esperado: 10000000
-
-Resultado obtenido : 10000000
-Resultado esperado : 10000000
-Diferencia         : 0
-
-[OK] Sin condición de carrera — datos CORRECTOS.

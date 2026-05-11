@@ -1,9 +1,0 @@
-=== MODO: SIN sincronización (race condition) ===
-Hilos: 20 | Iter/hilo: 500000 | Esperado: 10000000
-
-Resultado obtenido : 10000000
-Resultado esperado : 10000000
-Incrementos perdidos: 0 (0.00%)
-
-[!] Esta ejecución no mostró pérdida (el SO puede serializar hilos).
-    Ejecutar varias veces para observar el fenómeno.
