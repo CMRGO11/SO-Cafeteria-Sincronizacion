@@ -33,16 +33,23 @@ Simulación de una cafetería universitaria donde múltiples hilos (cajeros y un
 ## Estructura del repositorio
 
 ```
-project/
+project_so/
 ├── src/
 │   ├── cafeteria.c          # Módulo 1: simulación de cafetería sincronizada
-│   └── race_condition.c     # Módulo 2: demostración de race condition
+│   └── cafeteria_race.c     # Módulo 2: demostración de cafetería con race condition
 ├── scripts/
 │   ├── build.sh             # Compila ambos módulos
 │   └── run_experiments.sh   # Ejecuta experimentos automaticos y genera logs/tablas
 ├── results/
 │   ├── logs/                # Salidas de ejecución
-│   └── tables/              # Tablas CSV con métricas
+│   │   ├── modulo1.log
+│   │   └── modulo2.log
+│   └── tables/              # Tablas CSV
+│   │   └── resultados.csv
+│   └── screenshots/
+│       ├── modulo1.png
+│       ├── modulo2.png
+│       └── race_error.png
 └── README.md
 ```
 
@@ -77,69 +84,64 @@ bash scripts/build.sh
 ./src/cafeteria [num_cajeros] [num_cajas] [num_clientes]
 ```
 
-Valores por defecto: `5 cajeros`, `2 cajas`, `20 clientes`.
+Valores por defecto: `10 cajeros`, `1 cajas`, `1000 clientes`.
 
 Ejemplo:
 ```bash
-./src/cafeteria 5 2 20
+./src/cafeteria 10 1 1000
 ```
 
 Salida esperada:
 ```
-=== Cafetería UDLAP | cajeros=5 cajas=2 clientes=20 ===
+=== Cafetería UDLAP | cajeros=10 cajas=1 clientes=1000 ===
 [GEN]    Cliente   1 llega  | cola=1
 [CAJERO 1] Atiende cliente   1 | espera=0ms
 ...
 === RESUMEN ===
-Clientes atendidos : 20 / 20
+Clientes atendidos : 1000 / 1000
 Tiempo espera prom.: 0 ms
 ```
 
-### Módulo 2 — Race Condition
+### Módulo 2 — Cafetería SIN sincronización (race condition)
 
 ```bash
-# Sin sincronización (muestra el error)
-./src/race_condition sin_sync
-
-# Con mutex (muestra el comportamiento correcto)
-./src/race_condition con_sync
+./src/cafeteria_race [num_cajeros] [num_cajas] [num_clientes]
 ```
 
-Salida esperada (sin_sync):
-```
-Resultado obtenido : 7,615,719
-Resultado esperado : 10,000,000
-Incrementos perdidos: 2,384,281 (23.84%)
-[!] RACE CONDITION confirmada — resultado INCORRECTO.
+Ejemplo (recomendado para ver el error):
+```bash
+./src/cafeteria_race 10 1 1000
 ```
 
-Salida esperada (con_sync):
+Salida esperada:
 ```
-Resultado obtenido : 10,000,000
-Resultado esperado : 10,000,000
-Diferencia         : 0
-[OK] Sin condición de carrera — datos CORRECTOS.
+=== CAFETERÍA CON RACE CONDITION (SIN sincronización) ===
+  SIN mutex | SIN semáforos | Puede haber errores
+
+=== RESUMEN ===
+Clientes atendidos : 1001 / 1000 
+  RACE CONDITION DETECTADA: Se perdieron 1 clientes
 ```
 
 ---
 
-## Ejecutar todos los experimentos
+## Scripts disponibles
 
+| Script | Función |
+|--------|---------|
+| `scripts/build.sh` | Compila ambos módulos |
+| `scripts/run_experiments.sh` | Ejecuta los experimentos demostrando ambos módulos |
+
+### Compilar
 ```bash
-bash scripts/run_experiments.sh
+bash scripts/build.sh
 ```
-
-Genera automáticamente:
-- `results/logs/` — logs de cada ejecución
-- `results/tables/race_condition.csv` — tabla de condición de carrera
-- `results/tables/cafeteria_cajeros.csv` — impacto del número de cajeros
-- `results/tables/cafeteria_cajas.csv` — impacto del número de cajas
 
 ---
 
 ## Conceptos de SO demostrados
 
-- **Condición de carrera:** Demostrada en `race_condition.c` al acceder a una variable global sin protección
+- **Condición de carrera:** Demostrada en `cafeteria_race.c` al acceder a una variable global sin protección
 - **Exclusión mutua (mutex):** Protección de la fila de clientes
 - **Semáforos:** Control de acceso a las cajas de atención (recurso limitado)
 - **Variables de condición:** Cajeros esperan cuando la fila está vacía
@@ -147,10 +149,10 @@ Genera automáticamente:
 
 | Concepto | Dónde se demuestra |
 |----------|-------------------|
-| Hilos POSIX | `cafeteria.c`, `race_condition.c` |
-| Condición de carrera | `race_condition.c` modo `sin_sync` |
-| Exclusión mutua (mutex) | `cafeteria.c` — cola de clientes; `race_condition.c` modo `con_sync` |
-| Semáforo contable | `cafeteria.c` — cajas de atención (recurso limitado) |
-| Variable de condición | `cafeteria.c` — cajeros esperan cuando fila vacía |
+| Hilos POSIX | `cafeteria.c`, `cafeteria_race.c` |
+| Condición de carrera | `cafeteria_race.c` — al ejecutar `./src/cafeteria_race 10 1 1000` |
+| Exclusión mutua (mutex) | `cafeteria.c` — protección de la cola de clientes |
+| Semáforo contable | `cafeteria.c` — control de acceso a las cajas de atención |
+| Variable de condición | `cafeteria.c` — cajeros esperan cuando la fila está vacía |
 | Problema Productor-Consumidor | Generador de clientes (productor) ↔ Cajeros (consumidores) |
 | Planificación de hilos | El scheduler de Linux decide qué cajero atiende cada cliente |
