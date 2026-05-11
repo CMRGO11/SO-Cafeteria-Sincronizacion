@@ -18,8 +18,8 @@
 /* ─── Configuración ─────────────────────────────────────────────── */
 #define MAX_CAJEROS   10
 #define MAX_COLA      100
-#define SLEEP_GEN_MS  300   /* ms entre clientes generados */
-#define SLEEP_ATN_MS  500   /* ms que tarda un cajero en atender */
+#define SLEEP_GEN_MS  1   /* ms entre clientes generados */
+#define SLEEP_ATN_MS  1   /* ms que tarda un cajero en atender */
 
 /* ─── Estructuras ────────────────────────────────────────────────── */
 typedef struct {
